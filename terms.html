@@ -141,7 +141,7 @@
     if (nav.startsWith('it')) setLang('it');
 
     function setLang(l) {
-      document.querySelectorAll('[lang]').forEach(el => {
+      document.querySelectorAll('div[lang]').forEach(el => {
         el.style.display = el.getAttribute('lang') === l ? 'block' : 'none';
       });
       document.querySelectorAll('.lang-btn').forEach((btn, i) => {

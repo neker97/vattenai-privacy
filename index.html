@@ -28,7 +28,7 @@
 <!-- ENGLISH -->
 <div id="en">
   <h1>VattenAI</h1>
-  <p class="subtitle">Privacy Policy — Last updated: May 11, 2026</p>
+  <p class="subtitle">Privacy Policy — Last updated: May 19, 2026</p>
 
   <div class="section">
     <h2>Overview</h2>
@@ -55,12 +55,23 @@
 
   <div class="section">
     <h2>Events Discovery</h2>
-    <p>VattenAI shows upcoming events (festivals, concerts, fairs, etc.) in Italian cities. When browsing events, the following non-personal data may be sent to our backend:</p>
+    <p>VattenAI shows upcoming events (festivals, concerts, fairs, etc.) in Italian cities. Events are stored in our database and served via our backend. When browsing events, the following non-personal data may be sent to our backend:</p>
     <ul>
       <li>Selected city or region name</li>
       <li>Active filters (category, date range, search query)</li>
+      <li>Your coordinates (only when using the "Search this area" feature on the map, to find events near the map centre)</li>
     </ul>
     <p>No personal data is ever included. Events data is aggregated from public sources and is not linked to any individual user.</p>
+  </div>
+
+  <div class="section">
+    <h2>Favourites</h2>
+    <p>Events you mark as favourites are saved exclusively on your device using local storage (SharedPreferences). This data never leaves your device and is never sent to our servers.</p>
+  </div>
+
+  <div class="section">
+    <h2>Opening Google Maps</h2>
+    <p>When you tap the location card in an event detail view, the app can open Google Maps for navigation. This action passes the event's coordinates or address directly to the Google Maps app installed on your device (or to the Google Maps website). VattenAI does not transmit any data to Google Maps itself — this is a standard device deep-link. Google's own privacy policy applies to any data processed within the Google Maps app.</p>
   </div>
 
   <div class="section">
@@ -77,12 +88,19 @@
   </div>
 
   <div class="section">
+    <h2>App Preferences</h2>
+    <p>Your in-app preferences (home city, default travel radius, transport mode, language, theme) are stored locally on your device using SharedPreferences. They are never sent to our servers.</p>
+  </div>
+
+  <div class="section">
     <h2>Third-Party Services</h2>
     <ul>
       <li><strong>OpenStreetMap Nominatim</strong> — reverse geocoding (subject to <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">OSM Privacy Policy</a>)</li>
       <li><strong>OpenStreetMap Tiles</strong> — map display</li>
       <li><strong>OpenRouteService</strong> — travel radius (isochrone) calculation (subject to <a href="https://openrouteservice.org/privacy-policy/" target="_blank">ORS Privacy Policy</a>)</li>
       <li><strong>Google Gemini AI</strong> — fantasy travel estimate generation (subject to <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>)</li>
+      <li><strong>Google Maps</strong> — optional in-app navigation to event locations (subject to <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>)</li>
+      <li><strong>Supabase</strong> — events database hosting (subject to <a href="https://supabase.com/privacy" target="_blank">Supabase Privacy Policy</a>). Only non-personal query parameters (city, region, category, date) are sent.</li>
     </ul>
   </div>
 
@@ -105,7 +123,7 @@
 <!-- ITALIANO -->
 <div id="it" class="hidden">
   <h1>VattenAI</h1>
-  <p class="subtitle">Informativa sulla Privacy — Ultimo aggiornamento: 11 maggio 2026</p>
+  <p class="subtitle">Informativa sulla Privacy — Ultimo aggiornamento: 19 maggio 2026</p>
 
   <div class="section">
     <h2>Panoramica</h2>
@@ -132,12 +150,23 @@
 
   <div class="section">
     <h2>Scoperta degli eventi</h2>
-    <p>VattenAI mostra eventi in programma (sagre, concerti, fiere, ecc.) nelle città italiane. Durante la navigazione degli eventi, i seguenti dati non personali possono essere inviati al nostro backend:</p>
+    <p>VattenAI mostra eventi in programma (sagre, concerti, fiere, ecc.) nelle città italiane. Gli eventi sono archiviati nel nostro database e serviti tramite il nostro backend. Durante la navigazione degli eventi, i seguenti dati non personali possono essere inviati al nostro backend:</p>
     <ul>
       <li>Nome della città o regione selezionata</li>
       <li>Filtri attivi (categoria, periodo, testo di ricerca)</li>
+      <li>Le tue coordinate (solo quando usi la funzione "Cerca in quest'area" sulla mappa, per trovare eventi vicini al centro della mappa)</li>
     </ul>
     <p>Nessun dato personale è mai incluso. I dati sugli eventi sono aggregati da fonti pubbliche e non sono collegati ad alcun utente individuale.</p>
+  </div>
+
+  <div class="section">
+    <h2>Preferiti</h2>
+    <p>Gli eventi che contrassegni come preferiti vengono salvati esclusivamente sul tuo dispositivo tramite memoria locale (SharedPreferences). Questi dati non lasciano mai il tuo dispositivo e non vengono mai inviati ai nostri server.</p>
+  </div>
+
+  <div class="section">
+    <h2>Apertura di Google Maps</h2>
+    <p>Quando tocchi la card della posizione nel dettaglio di un evento, l'app può aprire Google Maps per la navigazione. Questa azione passa le coordinate o l'indirizzo dell'evento direttamente all'app Google Maps installata sul dispositivo (o al sito web di Google Maps). VattenAI non trasmette alcun dato a Google Maps — si tratta di un deep-link standard del dispositivo. La privacy policy di Google si applica a qualsiasi dato elaborato nell'app Google Maps.</p>
   </div>
 
   <div class="section">
@@ -154,12 +183,19 @@
   </div>
 
   <div class="section">
+    <h2>Preferenze dell'app</h2>
+    <p>Le preferenze nell'app (città di casa, raggio di percorrenza predefinito, mezzo di trasporto, lingua, tema) vengono memorizzate localmente sul dispositivo tramite SharedPreferences. Non vengono mai inviate ai nostri server.</p>
+  </div>
+
+  <div class="section">
     <h2>Servizi di terze parti</h2>
     <ul>
       <li><strong>OpenStreetMap Nominatim</strong> — geocodifica inversa (soggetto alla <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">Privacy Policy di OSM</a>)</li>
       <li><strong>OpenStreetMap Tiles</strong> — visualizzazione della mappa</li>
       <li><strong>OpenRouteService</strong> — calcolo del raggio di percorrenza (isocrona) (soggetto alla <a href="https://openrouteservice.org/privacy-policy/" target="_blank">Privacy Policy di ORS</a>)</li>
       <li><strong>Google Gemini AI</strong> — generazione delle stime di viaggio fantastico (soggetto alla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>)</li>
+      <li><strong>Google Maps</strong> — navigazione opzionale verso la location degli eventi (soggetto alla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>)</li>
+      <li><strong>Supabase</strong> — hosting del database degli eventi (soggetto alla <a href="https://supabase.com/privacy" target="_blank">Privacy Policy di Supabase</a>). Vengono inviati solo parametri di ricerca non personali (città, regione, categoria, data).</li>
     </ul>
   </div>
 

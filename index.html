@@ -73,6 +73,13 @@
   </div>
 
   <div class="section">
+    <h2>Push Notifications</h2>
+    <p>If you grant notification permission, the app registers a push token (a device identifier used to deliver notifications) on our server, together with your home city's name and its public coordinates — the city's centroid, the same values you'd get by picking that city from a list. <strong>Your device's raw GPS position is never sent or stored for this</strong>; only the city you're associated with is.</p>
+    <p>We use this to send: an occasional nearby weekend event if one exists close to your home city, a weekly "fantasy travel" suggestion, and an occasional re-engagement notification if you haven't opened the app in a while.</p>
+    <p>The token is removed automatically once it becomes invalid (e.g. after uninstalling the app) or when you revoke notification permission; you can also request removal at any time — see "Your Rights" below.</p>
+  </div>
+
+  <div class="section">
     <h2>Events Discovery</h2>
     <p>VattenAI shows upcoming events (festivals, concerts, fairs, etc.) in Italian cities. Events are stored in our database and served via our backend. When browsing events, the following non-personal data may be sent to our backend:</p>
     <ul>
@@ -130,6 +137,7 @@
       <li><strong>Google Maps</strong> — optional in-app navigation to event locations (subject to <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>)</li>
       <li><strong>Supabase</strong> — events/restaurants database hosting (subject to <a href="https://supabase.com/privacy" target="_blank">Supabase Privacy Policy</a>). Only non-personal query parameters (city, region, category, date) are sent for browsing; an anonymous account reference is sent only for actions tied to your account (adding/managing your content).</li>
       <li><strong>Firebase Authentication</strong> — sign-in with Google/Apple, only if you choose to sign in (subject to <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a>)</li>
+      <li><strong>Firebase Cloud Messaging</strong> — delivering push notifications, only if you grant notification permission (subject to <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a>)</li>
       <li><strong>Google Places API</strong> — restaurant photo selection, only when you choose to add a photo to a restaurant you submit (subject to <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>)</li>
     </ul>
   </div>
@@ -198,6 +206,13 @@
   </div>
 
   <div class="section">
+    <h2>Notifiche push</h2>
+    <p>Se concedi il permesso per le notifiche, l'app registra sul nostro server un token push (un identificativo del dispositivo usato per recapitare le notifiche), insieme al nome della tua città di casa e alle sue coordinate pubbliche — il centroide della città, gli stessi valori che otterresti selezionandola da una lista. <strong>La tua posizione GPS grezza non viene mai inviata né memorizzata per questo scopo</strong>; viene salvata solo la città a cui sei associato.</p>
+    <p>Lo usiamo per inviarti: un evento nel weekend vicino alla tua città di casa, se ce n'è uno, un suggerimento settimanale di "viaggio fantasy", e occasionalmente una notifica di richiamo se non apri l'app da un po'.</p>
+    <p>Il token viene rimosso automaticamente quando diventa non valido (es. dopo la disinstallazione dell'app) o quando revochi il permesso notifiche; puoi anche richiederne la rimozione in qualsiasi momento — vedi "I tuoi diritti" più sotto.</p>
+  </div>
+
+  <div class="section">
     <h2>Scoperta degli eventi</h2>
     <p>VattenAI mostra eventi in programma (sagre, concerti, fiere, ecc.) nelle città italiane. Gli eventi sono archiviati nel nostro database e serviti tramite il nostro backend. Durante la navigazione degli eventi, i seguenti dati non personali possono essere inviati al nostro backend:</p>
     <ul>
@@ -255,6 +270,7 @@
       <li><strong>Google Maps</strong> — navigazione opzionale verso la location degli eventi (soggetto alla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>)</li>
       <li><strong>Supabase</strong> — hosting del database di eventi/ristoranti (soggetto alla <a href="https://supabase.com/privacy" target="_blank">Privacy Policy di Supabase</a>). Per sfogliare vengono inviati solo parametri di ricerca non personali (città, regione, categoria, data); un riferimento anonimo all'account viene inviato solo per azioni legate al tuo account (aggiungere/gestire i tuoi contenuti).</li>
       <li><strong>Firebase Authentication</strong> — login con Google/Apple, solo se scegli di fare login (soggetto alla <a href="https://firebase.google.com/support/privacy" target="_blank">Privacy Policy di Firebase</a>)</li>
+      <li><strong>Firebase Cloud Messaging</strong> — recapito delle notifiche push, solo se concedi il permesso notifiche (soggetto alla <a href="https://firebase.google.com/support/privacy" target="_blank">Privacy Policy di Firebase</a>)</li>
       <li><strong>Google Places API</strong> — selezione foto ristorante, solo quando scegli di aggiungere una foto a un ristorante che invii (soggetto alla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>)</li>
     </ul>
   </div>

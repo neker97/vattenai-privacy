@@ -28,17 +28,29 @@
 <!-- ENGLISH -->
 <div id="en">
   <h1>VattenAI</h1>
-  <p class="subtitle">Privacy Policy — Last updated: May 19, 2026</p>
+  <p class="subtitle">Privacy Policy — Last updated: August 17, 2026</p>
 
   <div class="section">
     <h2>Overview</h2>
-    <p>VattenAI is a fantasy travel estimator and local events discovery app for Italian cities. We respect your privacy and are committed to transparency about how the app works.</p>
+    <p>VattenAI is a fantasy travel estimator and local events/restaurants discovery app for Italian cities. We respect your privacy and are committed to transparency about how the app works.</p>
   </div>
 
   <div class="section">
     <h2>Data We Collect</h2>
-    <p><strong>We do not collect, store, or share any personal data.</strong></p>
-    <p>The app does not require registration, login, or any personal information.</p>
+    <p>Most of the app works with <strong>no account and no personal data at all</strong> — browsing events, restaurants, the map, and getting a fantasy travel estimate never requires signing in.</p>
+    <p>Signing in (optional, see below) is the only case where we handle any personal data, and it's limited to what's described in the next section.</p>
+  </div>
+
+  <div class="section">
+    <h2>Account &amp; Sign-In</h2>
+    <p>You can use VattenAI fully as a guest. Signing in with <strong>Google</strong> or <strong>Apple</strong> is optional and only needed if you want to add your own events or restaurants to the app.</p>
+    <p>When you sign in, your email address is handled by Firebase Authentication (a Google service) — this is how we verify it's really you. We use your email for two purposes only:</p>
+    <ul>
+      <li><strong>Moderation</strong> — knowing who submitted an event or restaurant lets us review it before it appears publicly, and reach you if there's a problem with something you posted.</li>
+      <li><strong>Admin access</strong> — for our small internal team, sign-in is how the app recognises an administrator account.</li>
+    </ul>
+    <p><strong>We do not store your email address in our own database.</strong> Our backend only stores an anonymous account reference (assigned by Firebase, not tied to your name or email) to link content you've added — for example, so "your events" or "your restaurants" can be shown back to you, and so a duplicate submission can be traced to the same account. Firebase itself (Google) retains your sign-in email under its own privacy policy.</p>
+    <p><strong>Your personal data is never sold, rented, or shared with third parties</strong> for advertising or any other purpose, beyond the identity providers (Google, Apple) strictly needed to perform the sign-in itself.</p>
   </div>
 
   <div class="section">
@@ -61,7 +73,16 @@
       <li>Active filters (category, date range, search query)</li>
       <li>Your coordinates (only when using the "Search this area" feature on the map, to find events near the map centre)</li>
     </ul>
-    <p>No personal data is ever included. Events data is aggregated from public sources and is not linked to any individual user.</p>
+    <p>No personal data is ever included. Most events data is aggregated from public sources and is not linked to any individual user.</p>
+  </div>
+
+  <div class="section">
+    <h2>User-Submitted Events &amp; Restaurants</h2>
+    <p>If you're signed in with Google or Apple (guest accounts cannot do this), you can add your own local events and restaurants. Submissions from regular users go into a moderation queue and only become publicly visible once reviewed and approved; you'll see a "pending review" notice on your own item in the meantime.</p>
+    <p>What we store for a submission: the content itself (name, description, dates, category, photo if any), your anonymous account reference (see "Account &amp; Sign-In" above) so it can be shown back to you as "yours", and — for restaurants — an optional Google Maps link you provide to verify the place exists and pull its coordinates.</p>
+    <p>Restaurants you add remain visible to everyone once approved and are not deleted if you stop using the app — only our administrators can permanently remove one, since a restaurant may be useful to other users too. You can remove a restaurant from your own view at any time; this doesn't affect its visibility to others.</p>
+    <p>Personal tags you create to organise restaurants for yourself (e.g. "favourites") are private — only you can see how you've tagged a restaurant.</p>
+    <p>If you choose a restaurant photo from the picker, it's fetched once from Google Places and stored on our own servers — we don't repeatedly query Google for the same photo, and no Google Places data is shared onward beyond what's needed to fetch that one image.</p>
   </div>
 
   <div class="section">
@@ -100,13 +121,15 @@
       <li><strong>OpenRouteService</strong> — travel radius (isochrone) calculation (subject to <a href="https://openrouteservice.org/privacy-policy/" target="_blank">ORS Privacy Policy</a>)</li>
       <li><strong>Google Gemini AI</strong> — fantasy travel estimate generation (subject to <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>)</li>
       <li><strong>Google Maps</strong> — optional in-app navigation to event locations (subject to <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>)</li>
-      <li><strong>Supabase</strong> — events database hosting (subject to <a href="https://supabase.com/privacy" target="_blank">Supabase Privacy Policy</a>). Only non-personal query parameters (city, region, category, date) are sent.</li>
+      <li><strong>Supabase</strong> — events/restaurants database hosting (subject to <a href="https://supabase.com/privacy" target="_blank">Supabase Privacy Policy</a>). Only non-personal query parameters (city, region, category, date) are sent for browsing; an anonymous account reference is sent only for actions tied to your account (adding/managing your content).</li>
+      <li><strong>Firebase Authentication</strong> — sign-in with Google/Apple, only if you choose to sign in (subject to <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a>)</li>
+      <li><strong>Google Places API</strong> — restaurant photo selection, only when you choose to add a photo to a restaurant you submit (subject to <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>)</li>
     </ul>
   </div>
 
   <div class="section">
     <h2>Children's Privacy</h2>
-    <p>The app does not knowingly collect any data from children under 13. Since we collect no personal data at all, the app is safe for all ages.</p>
+    <p>The app does not knowingly collect any data from children under 13. Browsing the app requires no personal data at all; signing in requires a Google or Apple account, which are themselves subject to those platforms' own age requirements.</p>
   </div>
 
   <div class="section">
@@ -123,17 +146,29 @@
 <!-- ITALIANO -->
 <div id="it" class="hidden">
   <h1>VattenAI</h1>
-  <p class="subtitle">Informativa sulla Privacy — Ultimo aggiornamento: 19 maggio 2026</p>
+  <p class="subtitle">Informativa sulla Privacy — Ultimo aggiornamento: 17 agosto 2026</p>
 
   <div class="section">
     <h2>Panoramica</h2>
-    <p>VattenAI è un'app di stima di viaggi fantastici e scoperta di eventi locali tra le città italiane. Rispettiamo la tua privacy e ci impegniamo alla trasparenza sul funzionamento dell'app.</p>
+    <p>VattenAI è un'app di stima di viaggi fantastici e scoperta di eventi e ristoranti locali tra le città italiane. Rispettiamo la tua privacy e ci impegniamo alla trasparenza sul funzionamento dell'app.</p>
   </div>
 
   <div class="section">
     <h2>Dati che raccogliamo</h2>
-    <p><strong>Non raccogliamo, memorizziamo o condividiamo alcun dato personale.</strong></p>
-    <p>L'app non richiede registrazione, login o alcuna informazione personale.</p>
+    <p>La maggior parte dell'app funziona <strong>senza alcun account e senza alcun dato personale</strong> — sfogliare eventi, ristoranti, la mappa e ottenere una stima di viaggio fantasy non richiede mai il login.</p>
+    <p>Il login (facoltativo, vedi sotto) è l'unico caso in cui trattiamo dati personali, ed è limitato a quanto descritto nella sezione successiva.</p>
+  </div>
+
+  <div class="section">
+    <h2>Account e Login</h2>
+    <p>Puoi usare VattenAI interamente come ospite. Il login con <strong>Google</strong> o <strong>Apple</strong> è facoltativo e serve solo se vuoi aggiungere tuoi eventi o ristoranti all'app.</p>
+    <p>Quando fai login, il tuo indirizzo email è gestito da Firebase Authentication (un servizio Google) — è così che verifichiamo che sei davvero tu. Usiamo la tua email solo per due scopi:</p>
+    <ul>
+      <li><strong>Moderazione</strong> — sapere chi ha inviato un evento o un ristorante ci permette di revisionarlo prima che diventi pubblico, e di contattarti se c'è un problema con qualcosa che hai pubblicato.</li>
+      <li><strong>Accesso admin</strong> — per il nostro piccolo team interno, il login è come l'app riconosce un account amministratore.</li>
+    </ul>
+    <p><strong>Non memorizziamo il tuo indirizzo email nel nostro database.</strong> Il nostro backend memorizza solo un riferimento anonimo all'account (assegnato da Firebase, non collegato al tuo nome o email) per collegare i contenuti che hai aggiunto — ad esempio, così "i tuoi eventi" o "i tuoi ristoranti" possono esserti mostrati indietro, e un invio duplicato può essere ricondotto allo stesso account. Firebase stesso (Google) conserva la tua email di login secondo la propria informativa privacy.</p>
+    <p><strong>I tuoi dati personali non vengono mai venduti, noleggiati o condivisi con terze parti</strong> per pubblicità o qualsiasi altro scopo, oltre ai fornitori di identità (Google, Apple) strettamente necessari per eseguire il login stesso.</p>
   </div>
 
   <div class="section">
@@ -156,7 +191,16 @@
       <li>Filtri attivi (categoria, periodo, testo di ricerca)</li>
       <li>Le tue coordinate (solo quando usi la funzione "Cerca in quest'area" sulla mappa, per trovare eventi vicini al centro della mappa)</li>
     </ul>
-    <p>Nessun dato personale è mai incluso. I dati sugli eventi sono aggregati da fonti pubbliche e non sono collegati ad alcun utente individuale.</p>
+    <p>Nessun dato personale è mai incluso. La maggior parte dei dati sugli eventi è aggregata da fonti pubbliche e non è collegata ad alcun utente individuale.</p>
+  </div>
+
+  <div class="section">
+    <h2>Eventi e ristoranti inviati dagli utenti</h2>
+    <p>Se hai fatto login con Google o Apple (gli account ospite non possono farlo), puoi aggiungere tuoi eventi e ristoranti locali. Gli invii di utenti normali entrano in una coda di moderazione e diventano pubblici solo dopo revisione e approvazione; nel frattempo vedrai un avviso "in attesa di approvazione" sul tuo contenuto.</p>
+    <p>Cosa memorizziamo per un invio: il contenuto stesso (nome, descrizione, date, categoria, foto se presente), il tuo riferimento anonimo all'account (vedi "Account e Login" sopra) così da poterti essere mostrato come "tuo", e — per i ristoranti — un link Google Maps facoltativo che fornisci per verificare che il locale esista e ottenerne le coordinate.</p>
+    <p>I ristoranti che aggiungi restano visibili a tutti una volta approvati e non vengono cancellati se smetti di usare l'app — solo i nostri amministratori possono rimuoverne uno in modo permanente, dato che un ristorante può essere utile anche ad altri utenti. Puoi rimuovere un ristorante dalla tua vista personale in qualsiasi momento; questo non ne cambia la visibilità per gli altri.</p>
+    <p>I tag personali che crei per organizzare i ristoranti per te stesso (es. "preferiti") sono privati — solo tu vedi come hai taggato un ristorante.</p>
+    <p>Se scegli una foto per un ristorante dal selettore, viene recuperata una sola volta da Google Places e memorizzata sui nostri server — non interroghiamo ripetutamente Google per la stessa foto, e nessun dato di Google Places viene condiviso oltre a quanto serve per recuperare quella singola immagine.</p>
   </div>
 
   <div class="section">
@@ -195,13 +239,15 @@
       <li><strong>OpenRouteService</strong> — calcolo del raggio di percorrenza (isocrona) (soggetto alla <a href="https://openrouteservice.org/privacy-policy/" target="_blank">Privacy Policy di ORS</a>)</li>
       <li><strong>Google Gemini AI</strong> — generazione delle stime di viaggio fantastico (soggetto alla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>)</li>
       <li><strong>Google Maps</strong> — navigazione opzionale verso la location degli eventi (soggetto alla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>)</li>
-      <li><strong>Supabase</strong> — hosting del database degli eventi (soggetto alla <a href="https://supabase.com/privacy" target="_blank">Privacy Policy di Supabase</a>). Vengono inviati solo parametri di ricerca non personali (città, regione, categoria, data).</li>
+      <li><strong>Supabase</strong> — hosting del database di eventi/ristoranti (soggetto alla <a href="https://supabase.com/privacy" target="_blank">Privacy Policy di Supabase</a>). Per sfogliare vengono inviati solo parametri di ricerca non personali (città, regione, categoria, data); un riferimento anonimo all'account viene inviato solo per azioni legate al tuo account (aggiungere/gestire i tuoi contenuti).</li>
+      <li><strong>Firebase Authentication</strong> — login con Google/Apple, solo se scegli di fare login (soggetto alla <a href="https://firebase.google.com/support/privacy" target="_blank">Privacy Policy di Firebase</a>)</li>
+      <li><strong>Google Places API</strong> — selezione foto ristorante, solo quando scegli di aggiungere una foto a un ristorante che invii (soggetto alla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>)</li>
     </ul>
   </div>
 
   <div class="section">
     <h2>Privacy dei minori</h2>
-    <p>L'app non raccoglie consapevolmente dati da minori di 13 anni. Poiché non raccogliamo alcun dato personale, l'app è sicura per tutte le età.</p>
+    <p>L'app non raccoglie consapevolmente dati da minori di 13 anni. Sfogliare l'app non richiede alcun dato personale; il login richiede un account Google o Apple, a loro volta soggetti ai requisiti d'età di quelle piattaforme.</p>
   </div>
 
   <div class="section">

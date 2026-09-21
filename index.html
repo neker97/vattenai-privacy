@@ -28,7 +28,7 @@
 <!-- ENGLISH -->
 <div id="en">
   <h1>VattenAI</h1>
-  <p class="subtitle">Privacy Policy — Last updated: August 17, 2026</p>
+  <p class="subtitle">Privacy Policy — Last updated: September 21, 2026</p>
 
   <div class="section">
     <h2>Overview</h2>
@@ -76,6 +76,7 @@
     <h2>Push Notifications</h2>
     <p>If you grant notification permission, the app registers a push token (a device identifier used to deliver notifications) on our server, together with your home city's name and its public coordinates — the city's centroid, the same values you'd get by picking that city from a list. <strong>Your device's raw GPS position is never sent or stored for this</strong>; only the city you're associated with is.</p>
     <p>We use this to send: an occasional nearby weekend event if one exists close to your home city, a weekly "fantasy travel" suggestion, and an occasional re-engagement notification if you haven't opened the app in a while.</p>
+    <p><strong>Rain alerts for saved trips (optional, off by default).</strong> If you switch on "Warn me if it rains" for a trip you saved, the app sends our server that trip's name (the one you chose), its destination coordinates (the destination city's public centroid) and its date(s) or recurrence, linked to your push token. Your saved trips themselves, and their starting point, stay on your device and are not sent. Once a day we ask the public weather service <strong>Open-Meteo</strong> for the next day's forecast at the destinations of all users' alerts together — only coordinates, with no token, account or device identifier attached — and, if the chance of rain is 65% or more, we send you a notification the day before. This data is deleted when you switch the alert off, delete the trip, sign out or delete your account, and automatically once the trip's date has passed (for a recurring trip, once its end date has passed).</p>
     <p>The token is removed automatically once it becomes invalid (e.g. after uninstalling the app) or when you revoke notification permission; you can also request removal at any time — see "Your Rights" below.</p>
   </div>
 
@@ -97,6 +98,7 @@
     <p>Restaurants you add remain visible to everyone once approved and are not deleted if you stop using the app — only our administrators can permanently remove one, since a restaurant may be useful to other users too. You can remove a restaurant from your own view at any time; this doesn't affect its visibility to others.</p>
     <p>Personal tags you create to organise restaurants for yourself (e.g. "favourites") are private — only you can see how you've tagged a restaurant.</p>
     <p>If you choose a restaurant photo from the picker, it's fetched once from Google Places and stored on our own servers — we don't repeatedly query Google for the same photo, and no Google Places data is shared onward beyond what's needed to fetch that one image.</p>
+    <p>Any photo or document you upload for an event (cover image, or evidence that it really exists) is scanned server-side by <strong>Google Cloud Vision's SafeSearch</strong> before being stored, to detect and reject explicit or otherwise inappropriate content. The image itself is sent to Google for this one check and is not used by us for anything else.</p>
   </div>
 
   <div class="section">
@@ -118,8 +120,9 @@
       <li>The transport method you chose or typed</li>
       <li>If the destination has upcoming events: their names and dates (so the AI can mention them in the travel story)</li>
     </ul>
-    <p>This data is forwarded to Google Gemini AI to generate the estimate. <strong>No personal data is included in these requests.</strong> No request data is stored on our servers.</p>
-    <p>Please note: VattenAI uses the Google Gemini API. According to <a href="https://ai.google.dev/terms" target="_blank">Google's terms</a>, data sent may be used by Google to improve their AI models. Only non-personal data is ever sent.</p>
+    <p>This data is forwarded to Google Gemini AI to generate the estimate; if Gemini is temporarily unavailable (e.g. quota exhausted), the same request is automatically sent instead to <strong>xAI's Grok</strong> as a fallback, under the same terms. <strong>No personal data is included in these requests.</strong> No request data is stored on our servers.</p>
+    <p>Please note: VattenAI uses the Google Gemini API (and, as a fallback, the xAI Grok API). According to <a href="https://ai.google.dev/terms" target="_blank">Google's terms</a> and <a href="https://x.ai/legal/terms-of-service" target="_blank">xAI's terms</a>, data sent may be used by these providers to improve their AI models. Only non-personal data is ever sent.</p>
+    <p>On Android, this request also includes a <strong>Play Integrity</strong> attestation token — a signal from Google Play Services confirming the app/device installation looks genuine, used only to block abuse. It is not tied to your identity.</p>
   </div>
 
   <div class="section">
@@ -128,17 +131,29 @@
   </div>
 
   <div class="section">
+    <h2>Analytics</h2>
+    <p>With your explicit consent — asked once, either the first time you open the app or the next time you open it if you're an existing user — VattenAI uses <strong>Google Firebase Analytics</strong> to collect anonymous, aggregated usage statistics: which features are used, how often, and basic session/device information. This helps us understand what works and prioritise what to improve.</p>
+    <p>Analytics collection is <strong>off by default</strong> and only starts if you accept. You can change your choice at any time from Settings → Privacy.</p>
+    <p>This data is used internally, in aggregate form, to understand app usage. It is not currently sold or shared with third parties. If that were to change in the future, we would update this policy and ask for your consent again before doing so.</p>
+  </div>
+
+  <div class="section">
     <h2>Third-Party Services</h2>
     <ul>
       <li><strong>OpenStreetMap Nominatim</strong> — reverse geocoding (subject to <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">OSM Privacy Policy</a>)</li>
       <li><strong>OpenStreetMap Tiles</strong> — map display</li>
       <li><strong>OpenRouteService</strong> — travel radius (isochrone) calculation (subject to <a href="https://openrouteservice.org/privacy-policy/" target="_blank">ORS Privacy Policy</a>)</li>
+      <li><strong>Open-Meteo</strong> — weather forecasts, including optional rain alerts for saved trips; only coordinates are sent, with no account or device identifier (subject to <a href="https://open-meteo.com/en/terms" target="_blank">Open-Meteo terms</a>)</li>
       <li><strong>Google Gemini AI</strong> — fantasy travel estimate generation (subject to <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>)</li>
       <li><strong>Google Maps</strong> — optional in-app navigation to event locations (subject to <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>)</li>
       <li><strong>Supabase</strong> — events/restaurants database hosting (subject to <a href="https://supabase.com/privacy" target="_blank">Supabase Privacy Policy</a>). Only non-personal query parameters (city, region, category, date) are sent for browsing; an anonymous account reference is sent only for actions tied to your account (adding/managing your content).</li>
       <li><strong>Firebase Authentication</strong> — sign-in with Google/Apple, only if you choose to sign in (subject to <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a>)</li>
       <li><strong>Firebase Cloud Messaging</strong> — delivering push notifications, only if you grant notification permission (subject to <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a>)</li>
       <li><strong>Google Places API</strong> — restaurant photo selection, only when you choose to add a photo to a restaurant you submit (subject to <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>)</li>
+      <li><strong>Google Firebase Analytics</strong> — anonymous, aggregated usage statistics, only if you consent (subject to <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a>)</li>
+      <li><strong>Google Cloud Vision API</strong> — SafeSearch scan of photos/documents you upload for an event, before storage (subject to <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>)</li>
+      <li><strong>xAI Grok API</strong> — automatic fallback for travel estimate generation if Google Gemini is temporarily unavailable (subject to <a href="https://x.ai/legal/privacy-policy" target="_blank">xAI Privacy Policy</a>)</li>
+      <li><strong>Google Play Integrity</strong> — Android-only device/app attestation to block abuse, sent with AI travel estimate requests (subject to <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>)</li>
     </ul>
   </div>
 
@@ -161,7 +176,7 @@
 <!-- ITALIANO -->
 <div id="it" class="hidden">
   <h1>VattenAI</h1>
-  <p class="subtitle">Informativa sulla Privacy — Ultimo aggiornamento: 17 agosto 2026</p>
+  <p class="subtitle">Informativa sulla Privacy — Ultimo aggiornamento: 21 settembre 2026</p>
 
   <div class="section">
     <h2>Panoramica</h2>
@@ -209,6 +224,7 @@
     <h2>Notifiche push</h2>
     <p>Se concedi il permesso per le notifiche, l'app registra sul nostro server un token push (un identificativo del dispositivo usato per recapitare le notifiche), insieme al nome della tua città di casa e alle sue coordinate pubbliche — il centroide della città, gli stessi valori che otterresti selezionandola da una lista. <strong>La tua posizione GPS grezza non viene mai inviata né memorizzata per questo scopo</strong>; viene salvata solo la città a cui sei associato.</p>
     <p>Lo usiamo per inviarti: un evento nel weekend vicino alla tua città di casa, se ce n'è uno, un suggerimento settimanale di "viaggio fantasy", e occasionalmente una notifica di richiamo se non apri l'app da un po'.</p>
+    <p><strong>Avvisi pioggia per i viaggi salvati (facoltativi, disattivati di default).</strong> Se attivi "Avvisami se piove" per un viaggio che hai salvato, l'app invia al nostro server il nome di quel viaggio (quello che hai scelto), le coordinate della destinazione (il centroide pubblico della città di destinazione) e la data o le date, oppure la ricorrenza, collegati al tuo token push. I viaggi salvati in sé, e il loro punto di partenza, restano sul tuo dispositivo e non vengono inviati. Una volta al giorno chiediamo al servizio meteo pubblico <strong>Open-Meteo</strong> le previsioni del giorno dopo per le destinazioni di tutti gli avvisi insieme — solo coordinate, senza token, account o identificativo del dispositivo — e, se la probabilità di pioggia è almeno del 65%, ti mandiamo una notifica il giorno prima. Questi dati vengono cancellati quando disattivi l'avviso, elimini il viaggio, esci dall'account o elimini l'account, e automaticamente quando la data del viaggio è passata (per un viaggio ricorrente, quando è passata la data di fine).</p>
     <p>Il token viene rimosso automaticamente quando diventa non valido (es. dopo la disinstallazione dell'app) o quando revochi il permesso notifiche; puoi anche richiederne la rimozione in qualsiasi momento — vedi "I tuoi diritti" più sotto.</p>
   </div>
 
@@ -230,6 +246,7 @@
     <p>I ristoranti che aggiungi restano visibili a tutti una volta approvati e non vengono cancellati se smetti di usare l'app — solo i nostri amministratori possono rimuoverne uno in modo permanente, dato che un ristorante può essere utile anche ad altri utenti. Puoi rimuovere un ristorante dalla tua vista personale in qualsiasi momento; questo non ne cambia la visibilità per gli altri.</p>
     <p>I tag personali che crei per organizzare i ristoranti per te stesso (es. "preferiti") sono privati — solo tu vedi come hai taggato un ristorante.</p>
     <p>Se scegli una foto per un ristorante dal selettore, viene recuperata una sola volta da Google Places e memorizzata sui nostri server — non interroghiamo ripetutamente Google per la stessa foto, e nessun dato di Google Places viene condiviso oltre a quanto serve per recuperare quella singola immagine.</p>
+    <p>Qualsiasi foto o documento che carichi per un evento (immagine di copertina, o prova che esista davvero) viene scansionato lato server da <strong>Google Cloud Vision SafeSearch</strong> prima di essere memorizzato, per rilevare e rifiutare contenuti espliciti o comunque inappropriati. L'immagine viene inviata a Google solo per questo controllo e non è usata da noi per nient'altro.</p>
   </div>
 
   <div class="section">
@@ -251,8 +268,9 @@
       <li>Il mezzo di trasporto scelto o digitato</li>
       <li>Se la destinazione ha eventi in programma: i loro nomi e date (per consentire all'IA di menzionarli nella storia del viaggio)</li>
     </ul>
-    <p>Questi dati vengono inoltrati a Google Gemini AI per generare la stima. <strong>Nessun dato personale è incluso in queste richieste.</strong> Nessun dato viene memorizzato sui nostri server.</p>
-    <p>Nota: VattenAI utilizza le API Google Gemini. Secondo i <a href="https://ai.google.dev/terms" target="_blank">termini di Google</a>, i dati inviati potrebbero essere utilizzati da Google per migliorare i propri modelli AI. Vengono inviati solo dati non personali.</p>
+    <p>Questi dati vengono inoltrati a Google Gemini AI per generare la stima; se Gemini è temporaneamente non disponibile (es. quota esaurita), la stessa richiesta viene inviata automaticamente a <strong>xAI Grok</strong> come fallback, alle stesse condizioni. <strong>Nessun dato personale è incluso in queste richieste.</strong> Nessun dato viene memorizzato sui nostri server.</p>
+    <p>Nota: VattenAI utilizza le API Google Gemini (e, come fallback, le API xAI Grok). Secondo i <a href="https://ai.google.dev/terms" target="_blank">termini di Google</a> e i <a href="https://x.ai/legal/terms-of-service" target="_blank">termini di xAI</a>, i dati inviati potrebbero essere utilizzati da questi fornitori per migliorare i propri modelli AI. Vengono inviati solo dati non personali.</p>
+    <p>Su Android, questa richiesta include anche un token di attestazione <strong>Play Integrity</strong> — un segnale di Google Play Services che conferma che l'installazione app/dispositivo sembra genuina, usato solo per bloccare gli abusi. Non è collegato alla tua identità.</p>
   </div>
 
   <div class="section">
@@ -261,17 +279,29 @@
   </div>
 
   <div class="section">
+    <h2>Analytics</h2>
+    <p>Con il tuo consenso esplicito — richiesto una volta, alla prima apertura dell'app o alla prossima apertura se sei già un utente esistente — VattenAI usa <strong>Google Firebase Analytics</strong> per raccogliere statistiche d'uso anonime e aggregate: quali funzioni vengono usate, quanto spesso, e informazioni di base su sessione/dispositivo. Questo ci aiuta a capire cosa funziona e cosa migliorare.</p>
+    <p>La raccolta è <strong>disattivata di default</strong> e parte solo se accetti. Puoi cambiare la tua scelta in qualsiasi momento da Impostazioni → Privacy.</p>
+    <p>Questi dati sono usati internamente, in forma aggregata, per capire l'uso dell'app. Non vengono attualmente venduti né condivisi con terze parti. Se ciò dovesse cambiare in futuro, aggiorneremo questa informativa e richiederemo di nuovo il tuo consenso prima di procedere.</p>
+  </div>
+
+  <div class="section">
     <h2>Servizi di terze parti</h2>
     <ul>
       <li><strong>OpenStreetMap Nominatim</strong> — geocodifica inversa (soggetto alla <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">Privacy Policy di OSM</a>)</li>
       <li><strong>OpenStreetMap Tiles</strong> — visualizzazione della mappa</li>
       <li><strong>OpenRouteService</strong> — calcolo del raggio di percorrenza (isocrona) (soggetto alla <a href="https://openrouteservice.org/privacy-policy/" target="_blank">Privacy Policy di ORS</a>)</li>
+      <li><strong>Open-Meteo</strong> — previsioni meteo, compresi gli avvisi pioggia facoltativi per i viaggi salvati; vengono inviate solo coordinate, senza account né identificativo del dispositivo (soggetto ai <a href="https://open-meteo.com/en/terms" target="_blank">termini di Open-Meteo</a>)</li>
       <li><strong>Google Gemini AI</strong> — generazione delle stime di viaggio fantastico (soggetto alla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>)</li>
       <li><strong>Google Maps</strong> — navigazione opzionale verso la location degli eventi (soggetto alla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>)</li>
       <li><strong>Supabase</strong> — hosting del database di eventi/ristoranti (soggetto alla <a href="https://supabase.com/privacy" target="_blank">Privacy Policy di Supabase</a>). Per sfogliare vengono inviati solo parametri di ricerca non personali (città, regione, categoria, data); un riferimento anonimo all'account viene inviato solo per azioni legate al tuo account (aggiungere/gestire i tuoi contenuti).</li>
       <li><strong>Firebase Authentication</strong> — login con Google/Apple, solo se scegli di fare login (soggetto alla <a href="https://firebase.google.com/support/privacy" target="_blank">Privacy Policy di Firebase</a>)</li>
       <li><strong>Firebase Cloud Messaging</strong> — recapito delle notifiche push, solo se concedi il permesso notifiche (soggetto alla <a href="https://firebase.google.com/support/privacy" target="_blank">Privacy Policy di Firebase</a>)</li>
       <li><strong>Google Places API</strong> — selezione foto ristorante, solo quando scegli di aggiungere una foto a un ristorante che invii (soggetto alla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>)</li>
+      <li><strong>Google Firebase Analytics</strong> — statistiche d'uso anonime e aggregate, solo se acconsenti (soggetto alla <a href="https://firebase.google.com/support/privacy" target="_blank">Privacy Policy di Firebase</a>)</li>
+      <li><strong>Google Cloud Vision API</strong> — scansione SafeSearch di foto/documenti che carichi per un evento, prima della memorizzazione (soggetto alla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>)</li>
+      <li><strong>xAI Grok API</strong> — fallback automatico per la generazione della stima di viaggio se Google Gemini è temporaneamente non disponibile (soggetto alla <a href="https://x.ai/legal/privacy-policy" target="_blank">Privacy Policy di xAI</a>)</li>
+      <li><strong>Google Play Integrity</strong> — attestazione app/dispositivo solo Android per bloccare gli abusi, inviata con le richieste di stima di viaggio AI (soggetto alla <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a>)</li>
     </ul>
   </div>
 

@@ -68,6 +68,8 @@
     <ul>
       <li><strong>Find nearest city</strong> — when you tap "Use my position", your coordinates are sent to OpenStreetMap Nominatim for reverse geocoding to identify your nearest city. They are never stored.</li>
       <li><strong>Map centering</strong> — your location is used on-device to center the map. It is not sent to our servers for this purpose.</li>
+      <li><strong>Address suggestions</strong> — when you type an address while adding an event, the text you type, the city you selected and, if available, an approximate area around your position are sent to Photon (komoot.io, based on OpenStreetMap data) to suggest matching addresses. Do not type private addresses you do not want a third-party service to receive.</li>
+      <li><strong>Route quality (premium)</strong> — when you check the road type of a route, the start and destination coordinates are sent to our server, which forwards them to OpenRouteService (HeiGIT) to compute the route.</li>
       <li><strong>Travel radius (isochrone)</strong> — when you activate the travel-time ring on the map, your coordinates are sent to our server, which forwards them to OpenRouteService to calculate the reachable area. No personal data is attached.</li>
       <li><strong>Nearby events personalisation</strong> — your location is used on-device to suggest events near you and filter cities within a travel radius. Only the derived city names are sent to our backend to fetch events; raw coordinates are not.</li>
     </ul>
@@ -144,7 +146,8 @@
     <h2>Third-Party Services</h2>
     <ul>
       <li><strong>OpenStreetMap Nominatim</strong> — reverse geocoding (subject to <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank">OSM Privacy Policy</a>)</li>
-      <li><strong>OpenStreetMap Tiles</strong> — map display</li>
+      <li><strong>OpenStreetMap Tiles</strong> — map display (the map tiles are downloaded directly from OpenStreetMap, which can therefore see your IP address and the map area you are viewing)</li>
+      <li><strong>Photon (komoot.io)</strong> — address suggestions while adding an event (subject to the <a href="https://www.komoot.com/privacy" target="_blank">Komoot Privacy Policy</a>)</li>
       <li><strong>OpenRouteService</strong> — travel radius (isochrone) calculation (subject to <a href="https://heigit.org/privacy-policy/" target="_blank">ORS Privacy Policy</a>)</li>
       <li><strong>Open-Meteo</strong> — weather forecasts, including optional rain alerts for saved trips; only coordinates are sent, with no account or device identifier (subject to <a href="https://open-meteo.com/en/terms" target="_blank">Open-Meteo terms</a>)</li>
       <li><strong>OpenRouter</strong> — routes AI travel estimate requests to third-party AI models (subject to <a href="https://openrouter.ai/privacy" target="_blank">OpenRouter Privacy Policy</a>)</li>
@@ -224,6 +227,8 @@
     <ul>
       <li><strong>Trova la città più vicina</strong> — quando tocchi "Usa la mia posizione", le tue coordinate vengono inviate a OpenStreetMap Nominatim per la geocodifica inversa. Non vengono mai memorizzate.</li>
       <li><strong>Centratura della mappa</strong> — la tua posizione viene usata sul dispositivo per centrare la mappa. Non viene inviata ai nostri server per questo scopo.</li>
+      <li><strong>Suggerimenti di indirizzo</strong> — quando digiti un indirizzo aggiungendo un evento, il testo che scrivi, la città scelta e, se disponibile, un'area approssimativa attorno alla tua posizione vengono inviati a Photon (komoot.io, basato su dati OpenStreetMap) per suggerire indirizzi. Non digitare indirizzi privati che non vuoi far ricevere a un servizio di terzi.</li>
+      <li><strong>Qualità del percorso (premium)</strong> — quando controlli il tipo di strada di un percorso, le coordinate di partenza e destinazione vengono inviate al nostro server, che le inoltra a OpenRouteService (HeiGIT) per calcolare il percorso.</li>
       <li><strong>Raggio di percorrenza (isocrona)</strong> — quando attivi l'anello di percorrenza sulla mappa, le tue coordinate vengono inviate al nostro server, che le inoltra a OpenRouteService per calcolare l'area raggiungibile. Nessun dato personale è allegato.</li>
       <li><strong>Personalizzazione eventi vicini</strong> — la tua posizione viene usata sul dispositivo per suggerire eventi nelle vicinanze e filtrare le città nel raggio di percorrenza. Solo i nomi delle città derivati vengono inviati al nostro backend per recuperare gli eventi; le coordinate grezze non vengono inviate.</li>
     </ul>
@@ -300,7 +305,8 @@
     <h2>Servizi di terze parti</h2>
     <ul>
       <li><strong>OpenStreetMap Nominatim</strong> — geocodifica inversa (soggetto alla <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank">Privacy Policy di OSM</a>)</li>
-      <li><strong>OpenStreetMap Tiles</strong> — visualizzazione della mappa</li>
+      <li><strong>OpenStreetMap Tiles</strong> — visualizzazione della mappa (le tessere della mappa vengono scaricate direttamente da OpenStreetMap, che può quindi vedere il tuo indirizzo IP e la zona della mappa che stai guardando)</li>
+      <li><strong>Photon (komoot.io)</strong> — suggerimenti di indirizzo durante l'inserimento di un evento (soggetto alla <a href="https://www.komoot.com/privacy" target="_blank">Privacy Policy di Komoot</a>)</li>
       <li><strong>OpenRouteService</strong> — calcolo del raggio di percorrenza (isocrona) (soggetto alla <a href="https://heigit.org/privacy-policy/" target="_blank">Privacy Policy di ORS</a>)</li>
       <li><strong>Open-Meteo</strong> — previsioni meteo, compresi gli avvisi pioggia facoltativi per i viaggi salvati; vengono inviate solo coordinate, senza account né identificativo del dispositivo (soggetto ai <a href="https://open-meteo.com/en/terms" target="_blank">termini di Open-Meteo</a>)</li>
       <li><strong>OpenRouter</strong> — instradamento delle richieste di stima di viaggio AI verso modelli di terze parti (soggetto alla <a href="https://openrouter.ai/privacy" target="_blank">Privacy Policy di OpenRouter</a>)</li>

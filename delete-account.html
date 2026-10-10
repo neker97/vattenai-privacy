@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VattenAI - Delete your account / Cancella il tuo account</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f0f23; color: #e0e0e0; line-height: 1.7; padding: 24px; max-width: 720px; margin: 0 auto; }
+    h1 { color: #6C63FF; font-size: 28px; margin-bottom: 8px; }
+    h2 { color: #00D9FF; font-size: 20px; margin-top: 32px; margin-bottom: 12px; }
+    p, li { font-size: 15px; margin-bottom: 10px; }
+    ul { padding-left: 20px; }
+    .subtitle { color: #888; font-size: 14px; margin-bottom: 32px; }
+    .lang-switch { text-align: right; margin-bottom: 20px; }
+    .lang-switch a { color: #6C63FF; text-decoration: none; font-weight: bold; cursor: pointer; }
+    .section { background: rgba(108, 99, 255, 0.05); border: 1px solid rgba(108, 99, 255, 0.15); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+    a { color: #00D9FF; }
+    .hidden { display: none; }
+      h3 { color: #b9b4ff; font-size: 16px; margin-top: 18px; margin-bottom: 8px; }
+    table { border-collapse: collapse; width: 100%; margin: 10px 0 16px; font-size: 13px; }
+    th, td { border: 1px solid rgba(108,99,255,0.25); padding: 6px 8px; text-align: left; vertical-align: top; }
+    th { color: #00D9FF; }
+    hr { display: none; }
+      h3 { color: #b9b4ff; font-size: 16px; margin-top: 18px; margin-bottom: 8px; }
+    table { border-collapse: collapse; width: 100%; margin: 10px 0 16px; font-size: 13px; }
+    th, td { border: 1px solid rgba(108,99,255,0.25); padding: 6px 8px; text-align: left; vertical-align: top; }
+    th { color: #00D9FF; }
+    ol { padding-left: 22px; }
+  </style>
+</head>
+<body>
+
+<div class="lang-switch">
+  <a onclick="toggle('en')">English</a> | <a onclick="toggle('it')">Italiano</a>
+</div>
+
+<div id="en">
+  <h1>VattenAI — Delete your account and data</h1>
+  <p class="subtitle">App: <strong>VattenAI</strong> · Developer: <strong>Federico Ribaldi</strong> · Last updated: October 10, 2026</p>
+
+  <div class="section">
+    <h2>How to delete your account</h2>
+    <p><strong>Option 1 — in the app</strong> (if you signed in with Google or Apple):</p>
+    <ol>
+      <li>Open VattenAI and go to <strong>Profile → Settings</strong>.</li>
+      <li>In the <strong>Account</strong> section tap <strong>Delete account</strong>.</li>
+      <li>Read the warning, type <strong>DELETE</strong> to confirm and tap <strong>Delete permanently</strong>.</li>
+    </ol>
+    <p>Before deleting you can tap <strong>Get all my data</strong> in the same section to download a copy.</p>
+    <p><strong>Option 2 — by email</strong> (if you can't open the app, or for data not covered by the in-app deletion):</p>
+    <ol>
+      <li>Write to <a href="mailto:federico.ribaldi97@gmail.com">federico.ribaldi97@gmail.com</a> with the subject "Delete my account — VattenAI".</li>
+      <li>Write <strong>from the email address linked to your account</strong>, so that we can verify it is you; we may ask for other strictly necessary information.</li>
+      <li>We reply within <strong>one month</strong>. For complex requests the deadline can be extended by two more months, and we tell you within the first month (Art. 12(3) GDPR).</li>
+    </ol>
+    <p><strong>Guests</strong> (no sign-in) have no email or name: the anonymous account is deleted automatically after 30 days of inactivity.</p>
+  </div>
+
+  <div class="section">
+    <h2>What is deleted</h2>
+    <ul>
+      <li>Your account (Firebase Authentication): email, name, account ID.</li>
+      <li>Notification data (token, home city) with the rain alerts and event reminders linked to it.</li>
+      <li>Photos and proofs you uploaded, and your access to private events.</li>
+      <li>Your acceptances of the Terms.</li>
+      <li>Organisers you added that are left with no events.</li>
+      <li>Your events are emptied: all content, your name and your email are removed.</li>
+      <li>Your content reports are anonymised (your ID and text are removed).</li>
+    </ul>
+    <p>If a step fails (for example offline), it is retried every night.</p>
+  </div>
+
+  <div class="section">
+    <h2>What is kept, and for how long</h2>
+    <table>
+      <tr><th>Data</th><th>Kept</th><th>Why / for how long</th></tr>
+      <tr><td>Technical trace of your deleted events</td><td>Date, category, city only — no content, no author</td><td>Needed so that links and favourites don't break; it can no longer be linked to you.</td></tr>
+      <tr><td>Analytics consent record</td><td>Random installation code, choice, date (not linked to your account)</td><td>24 months after the choice ends, to prove consent.</td></tr>
+      <tr><td>Google Analytics for Firebase data</td><td>Tied to the installation, not the account</td><td>Up to 14 months at Google. Turn statistics off in Settings before deleting to stop collection.</td></tr>
+      <tr><td>Closed reports you made</td><td>Anonymised</td><td>12 months after closure.</td></tr>
+      <tr><td>Our correspondence</td><td>Your request and our reply</td><td>Up to 24 months, to prove we answered.</td></tr>
+      <tr><td>Database backups, if any</td><td>May still contain deleted data</td><td>Until the backup expires.</td></tr>
+      <tr><td>Restaurant data (feature suspended), your email in Premium/admin lists</td><td>Not removed automatically</td><td>Write to us and we remove them.</td></tr>
+    </table>
+    <p>More details are in the <a href="index.html">Privacy Policy</a> (§3 and §9).</p>
+  </div>
+</div>
+
+
+<div id="it" class="hidden">
+  <h1>VattenAI — Cancella il tuo account e i tuoi dati</h1>
+  <p class="subtitle">App: <strong>VattenAI</strong> · Sviluppatore: <strong>Federico Ribaldi</strong> · Ultimo aggiornamento: 10 ottobre 2026</p>
+
+  <div class="section">
+    <h2>Come cancellare il tuo account</h2>
+    <p><strong>Opzione 1 — nell'app</strong> (se hai fatto l'accesso con Google o Apple):</p>
+    <ol>
+      <li>Apri VattenAI e vai su <strong>Profilo → Impostazioni</strong>.</li>
+      <li>Nella sezione <strong>Account</strong> tocca <strong>Elimina account</strong>.</li>
+      <li>Leggi l'avviso, scrivi <strong>ELIMINA</strong> per confermare e tocca <strong>Elimina definitivamente</strong>.</li>
+    </ol>
+    <p>Prima di cancellare puoi toccare <strong>Recupera tutti i miei dati</strong>, nella stessa sezione, per scaricarne una copia.</p>
+    <p><strong>Opzione 2 — per email</strong> (se non riesci ad aprire l'app, o per i dati non coperti dalla cancellazione nell'app):</p>
+    <ol>
+      <li>Scrivi a <a href="mailto:federico.ribaldi97@gmail.com">federico.ribaldi97@gmail.com</a> con oggetto "Cancella il mio account — VattenAI".</li>
+      <li>Scrivi <strong>dall'indirizzo email collegato al tuo account</strong>, così possiamo verificare che sei tu; potremmo chiederti altre informazioni strettamente necessarie.</li>
+      <li>Rispondiamo entro <strong>un mese</strong>. Per richieste complesse il termine può essere prorogato di altri due mesi, e te lo comunichiamo entro il primo mese (art. 12.3 GDPR).</li>
+    </ol>
+    <p>Gli <strong>ospiti</strong> (senza accesso) non hanno email né nome: l'account anonimo si cancella da solo dopo 30 giorni di inattività.</p>
+  </div>
+
+  <div class="section">
+    <h2>Cosa viene cancellato</h2>
+    <ul>
+      <li>Il tuo account (Firebase Authentication): email, nome, identificativo dell'account.</li>
+      <li>I dati delle notifiche (token, città di casa) con gli avvisi pioggia e i promemoria collegati.</li>
+      <li>Le foto e le prove che hai caricato, e i tuoi accessi agli eventi privati.</li>
+      <li>Le tue accettazioni dei Termini.</li>
+      <li>Gli organizzatori che hai inserito e che restano senza eventi.</li>
+      <li>I tuoi eventi vengono svuotati: contenuto, nome ed email spariscono.</li>
+      <li>Le segnalazioni che hai fatto vengono rese anonime (tolti il tuo identificativo e il tuo testo).</li>
+    </ul>
+    <p>Se un passaggio fallisce (per esempio senza rete), viene ritentato ogni notte.</p>
+  </div>
+
+  <div class="section">
+    <h2>Cosa viene conservato, e per quanto tempo</h2>
+    <table>
+      <tr><th>Dato</th><th>Conservato</th><th>Perché / per quanto tempo</th></tr>
+      <tr><td>Traccia tecnica dei tuoi eventi cancellati</td><td>Solo data, categoria e città — nessun contenuto, nessun autore</td><td>Serve perché link e preferiti non si rompano; non è più collegabile a te.</td></tr>
+      <tr><td>Registro del consenso alle statistiche</td><td>Codice casuale dell'installazione, scelta, data (non collegati al tuo account)</td><td>24 mesi dopo la fine della scelta, per dimostrare il consenso.</td></tr>
+      <tr><td>Dati di Google Analytics for Firebase</td><td>Legati all'installazione, non all'account</td><td>Fino a 14 mesi presso Google. Disattiva le statistiche in Impostazioni prima di cancellare per fermare la raccolta.</td></tr>
+      <tr><td>Segnalazioni chiuse che hai fatto</td><td>Rese anonime</td><td>12 mesi dalla chiusura.</td></tr>
+      <tr><td>La nostra corrispondenza</td><td>La tua richiesta e la nostra risposta</td><td>Fino a 24 mesi, per dimostrare di aver risposto.</td></tr>
+      <tr><td>Backup del database, se presenti</td><td>Possono contenere ancora dati cancellati</td><td>Fino alla scadenza del backup.</td></tr>
+      <tr><td>Dati dei ristoranti (funzione sospesa), tua email negli elenchi Premium/amministratori</td><td>Non si cancellano da soli</td><td>Scrivici e li rimuoviamo.</td></tr>
+    </table>
+    <p>Maggiori dettagli nell'<a href="index.html">Informativa privacy</a> (§3 e §9).</p>
+  </div>
+</div>
+
+<script>
+  function toggle(lang) {
+    document.getElementById('en').classList.toggle('hidden', lang !== 'en');
+    document.getElementById('it').classList.toggle('hidden', lang !== 'it');
+  }
+  if (navigator.language.startsWith('it')) toggle('it');
+</script>
+
+</body>
+</html>

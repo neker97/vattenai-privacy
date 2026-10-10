@@ -1,173 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VattenAI – Terms of Service</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0d0d1a;
-      color: #e0e0e0;
-      padding: 40px 24px 80px;
-      max-width: 720px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-    .lang-switcher {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 32px;
-    }
-    .lang-btn {
-      background: rgba(100,80,200,0.15);
-      border: 1px solid rgba(100,80,200,0.4);
-      color: #a78bfa;
-      padding: 6px 18px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 13px;
-      transition: all 0.2s;
-    }
-    .lang-btn.active, .lang-btn:hover {
-      background: rgba(100,80,200,0.35);
-    }
-    .logo {
-      font-size: 28px;
-      font-weight: 900;
-      background: linear-gradient(90deg, #7c3aed, #38bdf8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 6px;
-    }
-    .subtitle {
-      color: #666;
-      font-size: 13px;
-      margin-bottom: 40px;
-    }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 28px; }
-    h2 { font-size: 15px; color: #a78bfa; letter-spacing: 2px; text-transform: uppercase; margin: 32px 0 10px; }
-    p { color: #bbb; font-size: 14px; margin-bottom: 12px; }
-    .updated { color: #555; font-size: 12px; margin-top: 48px; }
-    [lang="it"] { display: none; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f0f23; color: #e0e0e0; line-height: 1.7; padding: 24px; max-width: 720px; margin: 0 auto; }
+    h1 { color: #6C63FF; font-size: 28px; margin-bottom: 8px; }
+    h2 { color: #00D9FF; font-size: 20px; margin-top: 32px; margin-bottom: 12px; }
+    p, li { font-size: 15px; margin-bottom: 10px; }
+    ul { padding-left: 20px; }
+    .subtitle { color: #888; font-size: 14px; margin-bottom: 32px; }
+    .lang-switch { text-align: right; margin-bottom: 20px; }
+    .lang-switch a { color: #6C63FF; text-decoration: none; font-weight: bold; cursor: pointer; }
+    .section { background: rgba(108, 99, 255, 0.05); border: 1px solid rgba(108, 99, 255, 0.15); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+    a { color: #00D9FF; }
+    .hidden { display: none; }
+      h3 { color: #b9b4ff; font-size: 16px; margin-top: 18px; margin-bottom: 8px; }
+    table { border-collapse: collapse; width: 100%; margin: 10px 0 16px; font-size: 13px; }
+    th, td { border: 1px solid rgba(108,99,255,0.25); padding: 6px 8px; text-align: left; vertical-align: top; }
+    th { color: #00D9FF; }
+    hr { display: none; }
   </style>
 </head>
 <body>
-  <div class="lang-switcher">
-    <button class="lang-btn active" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('it')">IT</button>
+
+<div class="lang-switch">
+  <a onclick="toggle('en')">English</a> | <a onclick="toggle('it')">Italiano</a>
+</div>
+
+<!-- ENGLISH -->
+<div id="en">
+  <h1>VattenAI</h1>
+  <p class="subtitle">Terms of Service — Version 2026-10-10, in force from October 10, 2026</p>
+  <div class="section"><p>The binding text of these Terms is the Italian one (Terms §20.2). Switch to <a onclick="toggle('it')" style="cursor:pointer">Italiano</a> to read it.</p></div>
+</div>
+
+<!-- ITALIANO -->
+<div id="it" class="hidden">
+  <h1>VattenAI</h1>
+  <p class="subtitle">Termini di servizio — Versione 2026-10-10, in vigore dal 10 ottobre 2026</p>
+  <div class="section">
+<h2>1. Chi siamo</h2>
+<p>Il servizio VattenAI ("<strong>App</strong>") è fornito da <strong>Federico Ribaldi</strong>, persona fisica, sviluppatore individuale ("<strong>noi</strong>"). PEC: <strong>federico.ribaldi@pec.it</strong>. Contatto: <strong>federico.ribaldi97@gmail.com</strong>. Dati identificativi obbligatori per i servizi della società dell'informazione: art. 7 D.Lgs. 70/2003.</p>
+
   </div>
+  <div class="section">
+<h2>2. Cosa sono questi Termini e come si accettano</h2>
+<p>2.1 Questi Termini regolano l'uso dell'App. Il trattamento dei dati personali è descritto nell'<strong>Informativa privacy</strong>, che non è un contratto.<br />
+2.2 Al primo avvio dell'App accetti questi Termini e l'Informativa privacy con una casella da spuntare: senza accettazione non puoi proseguire. Per <strong>pubblicare contenuti</strong> ti chiediamo inoltre un'accettazione espressa, con una casella separata, delle clausole del §19.</p>
 
-  <div class="logo">VattenAI</div>
-  <div class="subtitle">Fantasy Travel Estimator &amp; Events Discovery</div>
-
-  <!-- ENGLISH -->
-  <div lang="en">
-    <h1>Terms of Service</h1>
-
-    <h2>1. Acceptance</h2>
-    <p>By downloading or using VattenAI, you agree to these Terms of Service. If you do not agree, please do not use the app.</p>
-
-    <h2>1bis. Age Requirement</h2>
-    <p>VattenAI is suitable for general audiences. Some optional features rely on your consent under data protection law — most notably, anonymous usage analytics — and if you are under 16 (or the minimum age of digital consent in your country, if lower), you may only enable those specific features with a parent or guardian's consent; otherwise, please leave them turned off. This does not restrict your ability to use the rest of the app.</p>
-
-    <h2>2. Description of Service</h2>
-    <p>VattenAI is a fantasy travel estimator and local events/restaurants discovery app for Italian cities. It uses AI (third-party models accessed through OpenRouter) to generate fictional, humorous travel estimates. It also aggregates upcoming events from public sources, and lets signed-in users submit their own events and restaurants. All travel estimates are purely imaginative and have no real-world accuracy.</p>
-
-    <h2>3. No Real Travel Advice</h2>
-    <p>VattenAI does not provide real travel times, routes, or transportation information. Do not rely on this app for actual travel planning. The estimates are for entertainment purposes only.</p>
-
-    <h2>4. Events Information</h2>
-    <p>Event listings are aggregated from public sources and are provided for informational purposes only. We do not guarantee the accuracy, completeness, or timeliness of event information. Always verify event details directly with the organiser before attending.</p>
-
-    <h2>4bis. User-Submitted Events &amp; Restaurants</h2>
-    <p>If you sign in with Google or Apple, you may submit your own events and restaurants. You are solely responsible for the accuracy and legality of anything you submit — do not post false, misleading, offensive, or duplicate listings, or content you don't have the right to share (e.g. photos, restaurant details).</p>
-    <p>Submissions from regular users are reviewed before becoming publicly visible. We reserve the right to reject, edit, or remove any submission at our sole discretion, and to suspend a user's ability to submit content in case of abuse. Restaurants you submit may remain visible to other users even if you stop using the app, since a restaurant's existence is a shared fact useful to everyone, not something we delete on request — only our administrators can permanently remove a restaurant listing.</p>
-
-    <h2>5. AI-Generated Content</h2>
-    <p>Travel estimate responses are generated by third-party AI models accessed through OpenRouter (with xAI's Grok used as an automatic fallback if those are temporarily unavailable) and may occasionally be inaccurate, nonsensical, or unexpected. We are not responsible for the content of AI-generated responses, regardless of which provider generated them.</p>
-
-    <h2>6. User Conduct</h2>
-    <p>You agree not to use the app to submit harmful, offensive, or malicious inputs. We reserve the right to block abusive usage at the server level.</p>
-
-    <h2>7. Availability</h2>
-    <p>VattenAI is provided "as is" without guarantees of uptime or availability. The service may be modified or discontinued at any time without notice.</p>
-
-    <h2>8. Intellectual Property</h2>
-    <p>All app content, design, and code are the property of VattenAI. You may not reproduce or redistribute any part of the app without permission.</p>
-
-    <h2>9. Limitation of Liability</h2>
-    <p>VattenAI is not liable for any damages arising from the use or inability to use the app, including reliance on AI-generated content or event information.</p>
-
-    <h2>10. Changes to Terms</h2>
-    <p>We may update these Terms at any time. Continued use of the app after changes constitutes acceptance of the new Terms.</p>
-
-    <h2>11. Contact</h2>
-    <p>For questions about these Terms, contact Federico Ribaldi (developer of VattenAI) at <a href="mailto:federico.ribaldi97@gmail.com">federico.ribaldi97@gmail.com</a> or through the app's store listing.</p>
-
-    <p class="updated">Last updated: September 21, 2026</p>
   </div>
+  <div class="section">
+<h2>3. Chi può usare l'App</h2>
+<p>3.1 L'App è destinata a chi ha compiuto <strong>14 anni</strong>. All'avvio ti chiediamo di dichiarare di avere almeno 14 anni e non puoi proseguire senza farlo, perché l'App si basa su sistemi di intelligenza artificiale e, sotto i 14 anni, in Italia serve il consenso di chi esercita la responsabilità genitoriale (art. 4 c. 4 L. 132/2025). La dichiarazione non viene verificata.<br />
+3.2 Per pubblicare contenuti serve un account Google o Apple; per segnalarli non serve. Sei responsabile della custodia del tuo account.</p>
 
-  <!-- ITALIANO -->
-  <div lang="it">
-    <h1>Termini di Servizio</h1>
-
-    <h2>1. Accettazione</h2>
-    <p>Scaricando o utilizzando VattenAI, accetti i presenti Termini di Servizio. Se non accetti, ti preghiamo di non utilizzare l'app.</p>
-
-    <h2>1bis. Requisito di età</h2>
-    <p>VattenAI è adatta a un pubblico generale. Alcune funzioni facoltative si basano sul tuo consenso ai sensi della normativa privacy — in particolare le statistiche d'uso anonime — e se hai meno di 16 anni (o l'età minima di consenso digitale prevista dal tuo paese, se inferiore), puoi attivare quelle funzioni specifiche solo con il consenso di un genitore o tutore; in caso contrario, lasciale disattivate. Questo non limita in alcun modo l'uso del resto dell'app.</p>
-
-    <h2>2. Descrizione del Servizio</h2>
-    <p>VattenAI è un simulatore di viaggi fantasy e un'app di scoperta di eventi e ristoranti locali tra i comuni italiani. Utilizza l'intelligenza artificiale (modelli di terze parti accessibili tramite OpenRouter) per generare stime di viaggio fittizie e divertenti, aggrega eventi in programma da fonti pubbliche, e permette agli utenti loggati di inviare propri eventi e ristoranti. Tutte le stime di viaggio sono puramente immaginarie e non hanno alcuna accuratezza reale.</p>
-
-    <h2>3. Nessun Consiglio di Viaggio Reale</h2>
-    <p>VattenAI non fornisce tempi di percorrenza, percorsi o informazioni di trasporto reali. Non fare affidamento su questa app per la pianificazione di viaggi reali. Le stime sono esclusivamente a scopo di intrattenimento.</p>
-
-    <h2>4. Informazioni sugli eventi</h2>
-    <p>Le schede degli eventi sono aggregate da fonti pubbliche e fornite solo a scopo informativo. Non garantiamo l'accuratezza, la completezza o l'aggiornamento delle informazioni sugli eventi. Verifica sempre i dettagli dell'evento direttamente con l'organizzatore prima di partecipare.</p>
-
-    <h2>4bis. Eventi e ristoranti inviati dagli utenti</h2>
-    <p>Se fai login con Google o Apple, puoi inviare tuoi eventi e ristoranti. Sei l'unico responsabile dell'accuratezza e della legalità di ciò che invii — non pubblicare contenuti falsi, fuorvianti, offensivi o duplicati, né contenuti che non hai il diritto di condividere (es. foto, dettagli del ristorante).</p>
-    <p>Gli invii di utenti normali vengono revisionati prima di diventare pubblicamente visibili. Ci riserviamo il diritto di rifiutare, modificare o rimuovere qualsiasi invio a nostra esclusiva discrezione, e di sospendere la possibilità di un utente di inviare contenuti in caso di abuso. I ristoranti che invii possono restare visibili ad altri utenti anche se smetti di usare l'app, dato che l'esistenza di un ristorante è un'informazione condivisa utile a tutti, non qualcosa che cancelliamo su richiesta — solo i nostri amministratori possono rimuovere in modo permanente una scheda ristorante.</p>
-
-    <h2>5. Contenuti Generati dall'IA</h2>
-    <p>Le risposte delle stime di viaggio sono generate da modelli di IA di terze parti accessibili tramite OpenRouter (con xAI Grok usato come fallback automatico se non sono temporaneamente disponibili) e potrebbero essere occasionalmente imprecise, assurde o inaspettate. Non siamo responsabili del contenuto delle risposte generate dall'IA, a prescindere da quale fornitore le abbia generate.</p>
-
-    <h2>6. Comportamento dell'Utente</h2>
-    <p>Accetti di non utilizzare l'app per inviare input dannosi, offensivi o malevoli. Ci riserviamo il diritto di bloccare utilizzi abusivi a livello server.</p>
-
-    <h2>7. Disponibilità</h2>
-    <p>VattenAI è fornito "così com'è" senza garanzie di uptime o disponibilità. Il servizio può essere modificato o interrotto in qualsiasi momento senza preavviso.</p>
-
-    <h2>8. Proprietà Intellettuale</h2>
-    <p>Tutti i contenuti, il design e il codice dell'app sono di proprietà di VattenAI. Non è consentito riprodurre o ridistribuire alcuna parte dell'app senza autorizzazione.</p>
-
-    <h2>9. Limitazione di Responsabilità</h2>
-    <p>VattenAI non è responsabile per eventuali danni derivanti dall'uso o dall'impossibilità di utilizzare l'app, incluso l'affidamento su contenuti generati dall'IA o sulle informazioni degli eventi.</p>
-
-    <h2>10. Modifiche ai Termini</h2>
-    <p>Potremmo aggiornare i presenti Termini in qualsiasi momento. L'uso continuato dell'app dopo le modifiche costituisce accettazione dei nuovi Termini.</p>
-
-    <h2>11. Contatti</h2>
-    <p>Per domande sui presenti Termini, contatta Federico Ribaldi (sviluppatore di VattenAI) a <a href="mailto:federico.ribaldi97@gmail.com">federico.ribaldi97@gmail.com</a> o tramite la scheda dell'app sullo store.</p>
-
-    <p class="updated">Ultimo aggiornamento: 21 settembre 2026</p>
   </div>
+  <div class="section">
+<h2>4. Il servizio</h2>
+<p>4.1 L'App offre: (a) <strong>stime di viaggio fantasiose</strong> generate da intelligenza artificiale; (b) un elenco di <strong>eventi</strong> in Italia, in parte raccolti automaticamente da fonti pubbliche e in parte pubblicati dagli utenti; (c) mappa, raggio di percorrenza, notifiche; (d) funzioni <strong>Premium</strong> (avvisi pioggia, promemoria, meteo e tipo di strada).<br />
+4.2 L'App è <strong>gratuita</strong>. Le funzioni Premium sono concesse gratuitamente su invito.<br />
+4.3 Ti concediamo una licenza personale, non esclusiva e non trasferibile per usare l'App a scopi personali e non commerciali. Possiamo revocarla solo nei casi previsti ai §9.5 e §16.2.</p>
 
-  <script>
-    const nav = navigator.language || navigator.userLanguage || 'en';
-    if (nav.startsWith('it')) setLang('it');
+  </div>
+  <div class="section">
+<h2>5. Stime generate da intelligenza artificiale</h2>
+<p>5.1 Le stime di viaggio sono <strong>testi generati automaticamente da sistemi di intelligenza artificiale di terzi</strong> (tramite OpenRouter, con modelli a pagamento di Mistral AI e Google e, come riserva, xAI). Sono <strong>inventate, a scopo di intrattenimento</strong>, e <strong>non</strong> sono tempi, percorsi o informazioni di viaggio reali. Non usarle per pianificare viaggi.<br />
+5.2 Possono essere imprecise, assurde o inappropriate. Non le controlliamo una per una prima che tu le veda.<br />
+5.3 Non inserire dati personali (tuoi o di altri) nei campi di testo libero: vengono inviati ai fornitori dei modelli (vedi Informativa §3.8), ai quali chiediamo di non conservarli né di usarli per addestramento, ma non possiamo garantirlo.<br />
+5.4 Se condividi una stima, ricorda che è un testo generato da IA.</p>
 
-    function setLang(l) {
-      document.querySelectorAll('div[lang]').forEach(el => {
-        el.style.display = el.getAttribute('lang') === l ? 'block' : 'none';
-      });
-      document.querySelectorAll('.lang-btn').forEach((btn, i) => {
-        btn.classList.toggle('active', (i === 0 && l === 'en') || (i === 1 && l === 'it'));
-      });
-    }
-  </script>
+  </div>
+  <div class="section">
+<h2>6. Informazioni sugli eventi</h2>
+<p>6.1 Gli eventi raccolti da fonti pubbliche sono mostrati "come sono", con la data della fonte. Possono essere errati, cambiati o annullati: <strong>verifica sempre con l'organizzatore</strong> prima di andarci.<br />
+6.2 Le categorie degli eventi raccolti possono essere assegnate automaticamente da un sistema di IA.<br />
+6.3 Non siamo organizzatori né venditori degli eventi e non vendiamo biglietti.</p>
+
+  </div>
+  <div class="section">
+<h2>7. Contenuti che pubblichi</h2>
+<p>7.1 Se hai un account Google o Apple puoi pubblicare eventi (pubblici o privati) con testo e immagine.<br />
+7.2 <strong>Garanzie dell'utente.</strong> Dichiari che i contenuti sono veri per quanto ti risulta, che hai il diritto di pubblicarli (incluse foto e locandine) e che non violano diritti di terzi (autore, immagine, privacy) né la legge.<br />
+7.3 <strong>Dati di altre persone.</strong> Non pubblicare dati personali di altre persone (nomi di privati, telefoni, email, indirizzi di abitazione) che non siano già stati resi pubblici dall'interessato per l'evento. La funzione di compilazione da locandina, se presente, invia il testo della locandina a fornitori di IA (Informativa §3.7): non usarla con locandine che contengono dati privati.<br />
+7.4 <strong>Licenza a noi.</strong> Ci concedi una licenza non esclusiva, gratuita, valida in tutto il mondo, per ospitare, riprodurre, adattare nel formato (ridimensionare, ritagliare), mostrare e condividere tramite l'App e le pagine di condivisione i contenuti che pubblichi, al solo fine di fornire e promuovere l'evento nel servizio. La licenza termina quando il contenuto viene cancellato, salvo le copie tecniche per il tempo indicato nell'Informativa. Resti titolare dei tuoi contenuti.<br />
+7.5 <strong>Eventi privati.</strong> Un evento privato non compare negli elenchi ma è visibile a <strong>chiunque abbia il link</strong>. Non usarlo per informazioni riservate.<br />
+7.6 <strong>Nome e email.</strong> Il tuo nome e la tua email vengono salvati con l'evento e sono visibili agli amministratori (Informativa §3.4).</p>
+
+  </div>
+  <div class="section">
+<h2>8. Contenuti vietati</h2>
+<p>È vietato pubblicare o inviare, anche tramite i campi di testo per l'IA:<br />
+(a) contenuti illegali, incluse violazioni di diritti d'autore e del diritto all'immagine;<br />
+(b) contenuti offensivi, discriminatori, violenti, sessualmente espliciti o che coinvolgano minori in modo inappropriato;<br />
+(c) eventi falsi, inesistenti o ingannevoli, truffe, raccolte di dati o pagamenti;<br />
+(d) pubblicità non legata a un evento reale, spam, contenuti duplicati;<br />
+(e) dati personali di terzi non già pubblici (§7.3);<br />
+(f) codice malevolo, tentativi di aggirare limiti, sicurezza, moderazione o di estrarre dati in modo automatizzato;<br />
+(g) contenuti destinati a manipolare i sistemi di IA (prompt injection).</p>
+
+  </div>
+  <div class="section">
+<h2>9. Moderazione</h2>
+<p>9.1 <strong>Prima della pubblicazione.</strong> Gli eventi degli utenti sono rivisti da un amministratore prima di diventare pubblici. Possiamo approvarli, chiederti correzioni o rifiutarli.<br />
+9.2 <strong>Strumenti automatici.</strong> Le immagini caricate dagli utenti sono controllate automaticamente da Google Cloud Vision SafeSearch: se il controllo le segnala o non è disponibile, l'upload viene rifiutato. Il controllo non si applica agli amministratori. Applichiamo anche limiti di frequenza e tetti giornalieri.<br />
+9.3 <strong>Dopo la pubblicazione.</strong> Possiamo rimuovere o rendere non visibile un contenuto che viola questi Termini o la legge, anche dopo una segnalazione (§10).<br />
+9.4 <strong>Motivazione.</strong> Quando rifiutiamo un tuo evento, ti chiediamo di correggerlo o rimuoviamo un tuo evento già pubblicato, anche dopo una segnalazione, ti avvisiamo con una notifica e indichiamo nell'App, in "I miei eventi", il motivo e come contestare la decisione (§11).</p>
+<p>9.5 <strong>Misure contro gli abusi.</strong> In caso di violazioni ripetute o gravi possiamo sospendere, per un periodo ragionevole e dopo averti avvisato, la possibilità di pubblicare, o chiudere l'account nei casi più gravi.<br />
+9.6 Non abbiamo un obbligo generale di sorveglianza sui contenuti (art. 8 DSA).</p>
+
+  </div>
+  <div class="section">
+<h2>10. Segnalare un contenuto illegale o non conforme (art. 16 DSA)</h2>
+<p>10.1 <strong>Nell'App:</strong> dal dettaglio di un evento, "Segnala", scegliendo un motivo (immagine non adeguata, evento inesistente, link non funzionante, data o luogo errati, contenuto offensivo o inappropriato, duplicato, altro con descrizione). Puoi segnalare anche senza account.<br />
+10.2 <strong>Per email (chiunque, senza account):</strong> scrivi a <strong>federico.ribaldi97@gmail.com</strong> indicando: l'evento (link o nome, data, città), perché ritieni il contenuto illegale o contrario ai Termini, il tuo nome e la tua email (salvo segnalazioni relative a reati sessuali su minori, in cui non sono necessari) e una dichiarazione di buona fede sulla correttezza della segnalazione.<br />
+10.3 Alle segnalazioni inviate <strong>per email</strong> rispondiamo confermando la ricezione e comunicando la decisione e la possibilità di ricorso. Per quelle inviate <strong>dall'App</strong> comunichiamo l'esito con una notifica; se hai segnalato senza account e hai lasciato un'email, ti scriviamo noi. Se ti serve altro, scrivi al §12.<br />
+10.4 Se veniamo a conoscenza di informazioni che fanno sospettare un reato che minaccia la vita o la sicurezza delle persone, informiamo le autorità competenti (art. 18 DSA).<br />
+10.5 <strong>Segnalazioni manifestamente infondate.</strong> Possiamo ignorare per un periodo ragionevole, dopo averti avvisato, le segnalazioni di chi invia di frequente segnalazioni manifestamente infondate.</p>
+
+  </div>
+  <div class="section">
+<h2>11. Reclamare contro una decisione di moderazione</h2>
+<p>Se non sei d'accordo con una decisione su un tuo contenuto o su una tua segnalazione, puoi scriverci a <strong>federico.ribaldi97@gmail.com</strong> entro 6 mesi dalla decisione, spiegando le ragioni; una persona riesaminerà la decisione e ti risponderà. Restano salvi il ricorso al giudice e, ove disponibili, gli organismi di risoluzione extragiudiziale.</p>
+
+  </div>
+  <div class="section">
+<h2>12. Punto di contatto (artt. 11-12 DSA)</h2>
+<p>Per le autorità, la Commissione, il Comitato europeo per i servizi digitali e per gli utenti: <strong>federico.ribaldi97@gmail.com</strong>, in italiano o inglese.</p>
+
+  </div>
+  <div class="section">
+<h2>13. Disponibilità e modifiche del servizio</h2>
+<p>13.1 Facciamo il possibile per mantenere l'App funzionante, ma non garantiamo che sia sempre disponibile o priva di errori. Il servizio dipende da fornitori esterni (hosting, modelli di IA, mappe, meteo) che possono interrompersi.<br />
+13.2 Possiamo modificare le funzioni dell'App per ragioni tecniche, di sicurezza, legali o di sostenibilità economica. Se una modifica riduce in modo rilevante una funzione che usi, o se decidiamo di chiudere il servizio, te lo comunichiamo nell'App con almeno <strong>30 giorni</strong> di preavviso, salvo urgenze di sicurezza o obblighi di legge, e ti diamo modo di esportare i tuoi dati.</p>
+
+  </div>
+  <div class="section">
+<h2>14. Proprietà intellettuale e fonti di terzi</h2>
+<p>14.1 L'App (codice, grafica, marchio "VattenAI") appartiene a noi o ai nostri licenzianti.<br />
+14.2 L'App usa dati e contenuti di terzi con le relative licenze: mappe e dati © contributori OpenStreetMap (ODbL); dati meteo Open-Meteo (CC BY 4.0); percorsi OpenRouteService/HeiGIT; Wikidata (CC0); open data regionali (licenze dei rispettivi portali); immagini di eventi di proprietà dei rispettivi titolari.<br />
+14.3 Gli eventi raccolti da fonti pubbliche restano di proprietà delle rispettive fonti. Se sei titolare di un contenuto e ne chiedi la rimozione, scrivi al §12.</p>
+
+  </div>
+  <div class="section">
+<h2>15. Responsabilità</h2>
+<p>15.1 <strong>Contenuti degli utenti e di terzi.</strong> Non siamo responsabili dei contenuti pubblicati dagli utenti o raccolti da fonti di terzi, salvo che, avutane conoscenza effettiva della illiceità, non li abbiamo rimossi tempestivamente (art. 6 DSA).<br />
+15.2 <strong>Limiti.</strong> Fatto salvo quanto previsto al §15.3, poiché il servizio è gratuito, siamo responsabili solo per i danni che siano conseguenza immediata e diretta della nostra violazione di questi Termini e prevedibili al momento in cui hai iniziato a usare l'App; non rispondiamo dei danni causati dall'affidamento su stime IA (che sono dichiaratamente immaginarie, §5) o su dati di eventi non verificati con l'organizzatore (§6).<br />
+15.3 <strong>Cosa non limitiamo.</strong> Nessuna clausola di questi Termini esclude o limita la nostra responsabilità per <strong>dolo o colpa grave</strong>, per <strong>danni alla persona</strong> (morte o lesioni) derivanti da un nostro fatto od omissione, né i diritti che ti spettano come consumatore per legge (artt. 1229 c.c.; 33 c. 2 lett. a-b e 36 Cod. Consumo).<br />
+15.4 <strong>Manleva</strong> (solo per utenti che agiscono come professionisti, es. organizzatori): ci terrai indenni dalle pretese di terzi derivanti da contenuti da te pubblicati in violazione dei §7-8.</p>
+
+  </div>
+  <div class="section">
+<h2>16. Durata, recesso, chiusura dell'account</h2>
+<p>16.1 Puoi smettere di usare l'App e <strong>cancellare l'account</strong> in qualsiasi momento da Impostazioni → Elimina account; gli ospiti vengono cancellati dopo 30 giorni di inattività. Gli effetti sui dati sono descritti nell'Informativa §9.<br />
+16.2 Possiamo chiudere un account per violazioni gravi o ripetute (§9.5). In quel caso ti comunichiamo il motivo <strong>per email</strong>, all'indirizzo del tuo account.<br />
+16.3 <strong>Informazioni e recesso per i consumatori.</strong> Puoi recedere dal contratto in qualsiasi momento, senza costi e senza dover dare una motivazione, cancellando l'account (§16.1) oppure, se usi l'App come ospite, smettendo di usarla o scrivendo al §12. Cancellare l'account, o comunicarci per email la volontà di recedere, vale come esercizio del diritto di recesso di cui agli artt. 52 ss. Cod. Consumo; l'account ospite viene comunque cancellato dopo 30 giorni di inattività.</p>
+
+  </div>
+  <div class="section">
+<h2>17. Modifiche ai Termini</h2>
+<p>17.1 Possiamo modificare questi Termini per giustificato motivo (cambi di legge, nuove funzioni, sicurezza, fornitori). Ti informiamo nell'App almeno <strong>15 giorni</strong> prima che le modifiche abbiano effetto; se non le accetti puoi cancellare l'account. Le modifiche non si applicano retroattivamente.</p>
+
+  </div>
+  <div class="section">
+<h2>18. Legge applicabile e foro</h2>
+<p>18.1 Si applica la legge italiana. Se sei un consumatore residente in un altro Paese UE conservi la protezione delle norme inderogabili del tuo Paese.<br />
+18.2 <strong>Consumatori:</strong> per ogni controversia è competente il giudice del luogo in cui <strong>risiedi o hai il domicilio</strong>. Una clausola che indicasse un foro diverso si presume vessatoria (art. 33 c. 2 lett. u Cod. Consumo).<br />
+18.3 <strong>Professionisti</strong> (chi usa l'App per la propria attività imprenditoriale o professionale, es. organizzatori di eventi): foro esclusivo di <strong>[FORO: città della sede del titolare]</strong>.<br />
+18.4 Puoi ricorrere agli organismi di risoluzione alternativa delle controversie dei consumatori (ADR) previsti dagli artt. 141 ss. Cod. Consumo.</p>
+
+  </div>
+  <div class="section">
+<h2>19. Clausole da approvare specificamente (artt. 1341 e 1342 c.c.)</h2>
+<p>Ai sensi degli artt. 1341 e 1342 c.c. dichiari di approvare specificamente le seguenti clausole: §4.3 (revoca della licenza d'uso nei casi indicati); §7.4 (licenza sui contenuti); §9.3 e §9.5 (rimozione contenuti, sospensione e chiusura dell'account); §10.5 (trattamento delle segnalazioni infondate); §13 (modifiche e cessazione del servizio con preavviso); §15.2 (limitazione di responsabilità); §15.4 (manleva); §17 (modifiche ai Termini); §18.3 (foro esclusivo per i professionisti).</p>
+
+  </div>
+  <div class="section">
+<h2>20. Disposizioni finali</h2>
+<p>20.1 Se una clausola è invalida, le altre restano valide.<br />
+20.2 Questi Termini sono redatti in italiano; in caso di discordanza con una traduzione prevale la versione italiana.<br />
+20.3 Garanzia legale di conformità dei contenuti e servizi digitali: si applicano, se e in quanto applicabili a un servizio gratuito, gli artt. 135-octies ss. Cod. Consumo.</p>
+  </div>
+</div>
+
+<script>
+  function toggle(lang) {
+    document.getElementById('en').classList.toggle('hidden', lang !== 'en');
+    document.getElementById('it').classList.toggle('hidden', lang !== 'it');
+  }
+  toggle('it');
+</script>
+
 </body>
 </html>

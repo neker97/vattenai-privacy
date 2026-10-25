@@ -37,7 +37,7 @@
 
 <div id="en">
   <h1>VattenAI — Delete your account and data</h1>
-  <p class="subtitle">App: <strong>VattenAI</strong> · Developer: <strong>Federico Ribaldi</strong> · Last updated: October 10, 2026</p>
+  <p class="subtitle">App: <strong>VattenAI</strong> · Developer: <strong>Federico Ribaldi</strong> · Last updated: October 25, 2026</p>
 
   <div class="section">
     <h2>How to delete your account</h2>
@@ -54,7 +54,7 @@
       <li>Write <strong>from the email address linked to your account</strong>, so that we can verify it is you; we may ask for other strictly necessary information.</li>
       <li>We reply within <strong>one month</strong>. For complex requests the deadline can be extended by two more months, and we tell you within the first month (Art. 12(3) GDPR).</li>
     </ol>
-    <p><strong>Guests</strong> (no sign-in) have no email or name: the anonymous account is deleted automatically after 30 days of inactivity.</p>
+    <p><strong>Guests</strong> (no sign-in) have no email or name: the anonymous account is deleted automatically after 30 days of inactivity. To remove earlier what the server holds for your installation (notification registration, alerts, reminders), open <strong>Profile → Settings → Delete this device's data</strong>; there is also <strong>Download this device's data</strong>.</p>
   </div>
 
   <div class="section">
@@ -64,8 +64,9 @@
       <li>Notification data (token, home city) with the rain alerts and event reminders linked to it.</li>
       <li>Photos and proofs you uploaded, and your access to private events.</li>
       <li>Your acceptances of the Terms.</li>
+      <li>Restaurant data you entered (feature suspended) and your email in the Premium list.</li>
       <li>Organisers you added that are left with no events.</li>
-      <li>Your events are emptied: all content, your name and your email are removed.</li>
+      <li>Your events are emptied: all content and your name are removed, and the title becomes generic.</li>
       <li>Your content reports are anonymised (your ID and text are removed).</li>
     </ul>
     <p>If a step fails (for example offline), it is retried every night.</p>
@@ -75,13 +76,14 @@
     <h2>What is kept, and for how long</h2>
     <table>
       <tr><th>Data</th><th>Kept</th><th>Why / for how long</th></tr>
-      <tr><td>Technical trace of your deleted events</td><td>Date, category, city only — no content, no author</td><td>Needed so that links and favourites don't break; it can no longer be linked to you.</td></tr>
-      <tr><td>Analytics consent record</td><td>Random installation code, choice, date (not linked to your account)</td><td>24 months after the choice ends, to prove consent.</td></tr>
-      <tr><td>Google Analytics for Firebase data</td><td>Tied to the installation, not the account</td><td>Up to 14 months at Google. Turn statistics off in Settings before deleting to stop collection.</td></tr>
+      <tr><td>Technical trace of your deleted events</td><td>Generic title, dates, category, city only — no content, no author</td><td>Needed so that links and favourites don't break; it can no longer be linked to you.</td></tr>
+      <tr><td>Analytics consent record</td><td>Random installation code, choice, dates, version of the text shown (not linked to your account)</td><td>24 months after the choice ends, to prove consent.</td></tr>
+      <tr><td>Record of your choice on "Tips and reminders"</td><td>Hash of the installation key, choice, dates, version of the text shown (not linked to your account)</td><td>24 months after it was recorded.</td></tr>
+      <tr><td>Google Analytics for Firebase data</td><td>Tied to the installation, not the account</td><td>Up to 14 months at Google. Turning statistics off in Settings stops collection but does not delete the history already collected: write to us before uninstalling the app and we will submit the deletion request to Google.</td></tr>
       <tr><td>Closed reports you made</td><td>Anonymised</td><td>12 months after closure.</td></tr>
       <tr><td>Our correspondence</td><td>Your request and our reply</td><td>Up to 24 months, to prove we answered.</td></tr>
       <tr><td>Database backups, if any</td><td>May still contain deleted data</td><td>Until the backup expires.</td></tr>
-      <tr><td>Restaurant data (feature suspended), your email in Premium/admin lists</td><td>Not removed automatically</td><td>Write to us and we remove them.</td></tr>
+      <tr><td>An email written in the administrators' server configuration</td><td>Not removed automatically</td><td>Write to us and we remove it.</td></tr>
     </table>
     <p>More details are in the <a href="index.html">Privacy Policy</a> (§3 and §9).</p>
   </div>
@@ -90,7 +92,7 @@
 
 <div id="it" class="hidden">
   <h1>VattenAI — Cancella il tuo account e i tuoi dati</h1>
-  <p class="subtitle">App: <strong>VattenAI</strong> · Sviluppatore: <strong>Federico Ribaldi</strong> · Ultimo aggiornamento: 10 ottobre 2026</p>
+  <p class="subtitle">App: <strong>VattenAI</strong> · Sviluppatore: <strong>Federico Ribaldi</strong> · Ultimo aggiornamento: 25 ottobre 2026</p>
 
   <div class="section">
     <h2>Come cancellare il tuo account</h2>
@@ -107,7 +109,7 @@
       <li>Scrivi <strong>dall'indirizzo email collegato al tuo account</strong>, così possiamo verificare che sei tu; potremmo chiederti altre informazioni strettamente necessarie.</li>
       <li>Rispondiamo entro <strong>un mese</strong>. Per richieste complesse il termine può essere prorogato di altri due mesi, e te lo comunichiamo entro il primo mese (art. 12.3 GDPR).</li>
     </ol>
-    <p>Gli <strong>ospiti</strong> (senza accesso) non hanno email né nome: l'account anonimo si cancella da solo dopo 30 giorni di inattività.</p>
+    <p>Gli <strong>ospiti</strong> (senza accesso) non hanno email né nome: l'account anonimo si cancella da solo dopo 30 giorni di inattività. Per togliere prima ciò che il server conserva per la tua installazione (registrazione delle notifiche, avvisi, promemoria) apri <strong>Profilo → Impostazioni → Cancella i dati di questo dispositivo</strong>; c'è anche <strong>Scarica i dati di questo dispositivo</strong>.</p>
   </div>
 
   <div class="section">
@@ -117,8 +119,9 @@
       <li>I dati delle notifiche (token, città di casa) con gli avvisi pioggia e i promemoria collegati.</li>
       <li>Le foto e le prove che hai caricato, e i tuoi accessi agli eventi privati.</li>
       <li>Le tue accettazioni dei Termini.</li>
+      <li>I dati dei ristoranti che hai inserito (funzione sospesa) e la tua email nell'elenco Premium.</li>
       <li>Gli organizzatori che hai inserito e che restano senza eventi.</li>
-      <li>I tuoi eventi vengono svuotati: contenuto, nome ed email spariscono.</li>
+      <li>I tuoi eventi vengono svuotati: contenuto e nome spariscono e il titolo diventa generico.</li>
       <li>Le segnalazioni che hai fatto vengono rese anonime (tolti il tuo identificativo e il tuo testo).</li>
     </ul>
     <p>Se un passaggio fallisce (per esempio senza rete), viene ritentato ogni notte.</p>
@@ -128,13 +131,14 @@
     <h2>Cosa viene conservato, e per quanto tempo</h2>
     <table>
       <tr><th>Dato</th><th>Conservato</th><th>Perché / per quanto tempo</th></tr>
-      <tr><td>Traccia tecnica dei tuoi eventi cancellati</td><td>Solo data, categoria e città — nessun contenuto, nessun autore</td><td>Serve perché link e preferiti non si rompano; non è più collegabile a te.</td></tr>
-      <tr><td>Registro del consenso alle statistiche</td><td>Codice casuale dell'installazione, scelta, data (non collegati al tuo account)</td><td>24 mesi dopo la fine della scelta, per dimostrare il consenso.</td></tr>
-      <tr><td>Dati di Google Analytics for Firebase</td><td>Legati all'installazione, non all'account</td><td>Fino a 14 mesi presso Google. Disattiva le statistiche in Impostazioni prima di cancellare per fermare la raccolta.</td></tr>
+      <tr><td>Traccia tecnica dei tuoi eventi cancellati</td><td>Solo titolo generico, date, categoria e città — nessun contenuto, nessun autore</td><td>Serve perché link e preferiti non si rompano; non è più collegabile a te.</td></tr>
+      <tr><td>Registro del consenso alle statistiche</td><td>Codice casuale dell'installazione, scelta, date, versione del testo mostrato (non collegati al tuo account)</td><td>24 mesi dopo la fine della scelta, per dimostrare il consenso.</td></tr>
+      <tr><td>Registro della scelta su "Suggerimenti e promemoria"</td><td>Impronta della chiave dell'installazione, scelta, date, versione del testo mostrato (non collegati al tuo account)</td><td>24 mesi dalla registrazione.</td></tr>
+      <tr><td>Dati di Google Analytics for Firebase</td><td>Legati all'installazione, non all'account</td><td>Fino a 14 mesi presso Google. Disattivare le statistiche in Impostazioni ferma la raccolta ma non cancella lo storico già raccolto: scrivici prima di disinstallare l'app e presenteremo la richiesta di cancellazione a Google.</td></tr>
       <tr><td>Segnalazioni chiuse che hai fatto</td><td>Rese anonime</td><td>12 mesi dalla chiusura.</td></tr>
       <tr><td>La nostra corrispondenza</td><td>La tua richiesta e la nostra risposta</td><td>Fino a 24 mesi, per dimostrare di aver risposto.</td></tr>
       <tr><td>Backup del database, se presenti</td><td>Possono contenere ancora dati cancellati</td><td>Fino alla scadenza del backup.</td></tr>
-      <tr><td>Dati dei ristoranti (funzione sospesa), tua email negli elenchi Premium/amministratori</td><td>Non si cancellano da soli</td><td>Scrivici e li rimuoviamo.</td></tr>
+      <tr><td>Un'email scritta nella configurazione del server degli amministratori</td><td>Non si cancella da sola</td><td>Scrivici e la rimuoviamo.</td></tr>
     </table>
     <p>Maggiori dettagli nell'<a href="index.html">Informativa privacy</a> (§3 e §9).</p>
   </div>

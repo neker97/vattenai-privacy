@@ -33,7 +33,7 @@
 <!-- ENGLISH -->
 <div id="en">
   <h1>VattenAI</h1>
-  <p class="subtitle">Privacy Policy — Last updated: October 10, 2026</p>
+  <p class="subtitle">Privacy Policy — Last updated: October 25, 2026</p>
   <div class="section">
 <h2>1. Controller and contact</h2>
 <p>Controller: <strong>Federico Ribaldi</strong>, individual, sole developer of VattenAI. Certified email (PEC): <strong>federico.ribaldi@pec.it</strong>.</p>
@@ -74,21 +74,21 @@
 <ul>
 <li><strong>Data:</strong> uid, email, display name, provider. <strong>Basis:</strong> (b).</li>
 <li><strong>Retention:</strong> until deletion; Google may keep auth data up to 180 days and sign-in IP logs "a few weeks".</li>
-<li><strong>Important:</strong> when you create an event <strong>we store your name and email in our database</strong> (<code>submitter_name</code>, <code>submitter_email</code>) for moderation; never public, visible to you and admins only.</li>
+<li><strong>Important:</strong> when you create an event <strong>we store your name</strong> with it (<code>submitter_name</code>) for moderation. We do <strong>not</strong> store your email with the event: when an administrator reviews it, the email is read from your Firebase account at that moment and shown only to them. Never public. Emails stored with events created before this change have been erased.</li>
 </ul>
 <h3>3.5 Events you publish</h3>
 <ul>
 <li><strong>Data:</strong> content (name, description, dates, place/address, price, category, notes to moderators, cover image, organiser), your uid, name/email, moderation status and comments.</li>
 <li><strong>Public:</strong> after approval the content (not your name/email) is public. The public cover image URL does not contain your account ID: the image sits in a folder with an opaque name computed with a secret key only we hold.</li>
 <li><strong>Private events:</strong> unlisted but visible to <strong>anyone with the link</strong>.</li>
-<li><strong>Organisers:</strong> a new organiser's name and city enter a list <strong>searchable by anyone using the app, even without an account</strong>, and repeated searches can download it all. Don't enter a private person's name without the right to.</li>
-<li><strong>Geocoding:</strong> for events without coordinates our server sends address/place, city and province to OpenStreetMap Nominatim — for <strong>all</strong> such events, <strong>including private, not-yet-approved and ones you deleted</strong>.</li>
-<li><strong>Deduplication with public sources:</strong> if a collected event looks like yours (same city/date, similar name), the dedup process may <strong>overwrite your event — even a private one —</strong> with description, place, address, image, price and dates from the public source, and, when the AI check is on, send your event to Jev (§3.17).</li>
+<li><strong>Organisers:</strong> a new organiser's name and city enter a list of organisers. The search shows only organisers of events that are already public and visible, but it is open to <strong>anyone using the app, even without an account</strong>. Don't enter a private person's name without the right to.</li>
+<li><strong>Geocoding:</strong> for public events collected from public sources that lack coordinates, our server sends the address/place, city and province to OpenStreetMap Nominatim. Events published by users — including private, pending, draft or deleted ones — are never sent.</li>
+<li><strong>Deduplication:</strong> the deduplication process compares events collected from public sources with each other. It does not read, modify or send to third parties the events published by users, private ones included (§3.17).</li>
 <li><strong>Basis:</strong> (b) publishing; (f) moderation; (c) DSA notices.</li>
-<li><strong>Retention:</strong> user events deleted <strong>14 days after end date</strong> (7 if private); <strong>the end date has no maximum</strong> (only the start date is capped to one year ahead), so a far-future end date keeps the event published and stored until then. If you delete an event it is first only marked deleted and hidden from lists, but <strong>anyone with the link still sees name, dates, category and city</strong> until final erasure. <strong>Uploaded images</strong>, including those of events never saved, remain in storage after the event is erased, until you delete your account. Organisers left with no events are deleted every night and when you delete your account.</li>
+<li><strong>Retention:</strong> user events deleted <strong>14 days after end date</strong> (7 if private); <strong>the end date has no maximum</strong> (only the start date is capped to one year ahead), so a far-future end date keeps the event published and stored until then. <strong>Drafts</strong> you have not modified for 180 days are deleted. If you delete an event, its content (description, place, address, notes, price, images, evidence, organiser link) is removed immediately and only a technical stub remains — a generic title ("Event no longer available"), dates, category and city — that <strong>anyone with the link can still see</strong> until final erasure at the end-date term above or when you delete your account. If an administrator removes an event, the reason is kept so you can contest it. <strong>Images</strong> are deleted with the event; images uploaded but never linked to an event are deleted after 30 days; if the storage does not answer, removal is retried the following nights. Organisers left with no events are deleted every night and when you delete your account.</li>
 </ul>
 <h3>3.6 Uploaded images and automated check</h3>
-<p>Before storage, images go to <strong>Google Cloud Vision SafeSearch</strong>; flagged or unchecked uploads are rejected. <strong>Images uploaded by administrators skip this check</strong>. Google states no training and in-memory processing. The app re-compresses photos, normally stripping EXIF/GPS; our server does <strong>not</strong> strip metadata. Basis (b)/(f); retention as §3.5.</p>
+<p>Before storage, images go to <strong>Google Cloud Vision SafeSearch</strong>; flagged or unchecked uploads are rejected. <strong>Images uploaded by administrators skip this check</strong>. Google states no training and in-memory processing. The app re-compresses photos and our server also removes the metadata (EXIF/GPS location, XMP, IPTC, comments) from the files it stores, without altering the pixels. Basis (b)/(f); retention as §3.5.</p>
 <h3>3.7 Auto-fill from a poster (if available in your app version)</h3>
 <ul>
 <li><strong>When:</strong> only if you use "Fill from a poster" while creating an event. It needs an account (Google or Apple), not guest access. Before first use the app shows a notice and asks you to confirm you understood it.</li>
@@ -96,13 +96,13 @@
 <li><strong>What it does:</strong><ol>
 <li>the image is sent to <strong>Google Cloud Vision</strong>, which reads its text (we do not store it here: any cover image follows the flow in §3.6);</li>
 <li>in the recognised text we <strong>mask emails, IBANs and phone numbers</strong>, replacing them with "[email]", "[iban]" and "[telefono]", and cut it to 3,000 characters. Names and addresses are <strong>not</strong> masked;</li>
-<li>the cleaned text, <strong>without your name, email or ID</strong>, is sent via <strong>OpenRouter</strong> (USA) to a <strong>paid</strong> AI model, one of two: <strong>Mistral Small</strong> run by <strong>Mistral AI</strong> (France) and, if it does not answer, <strong>Gemini 2.5 Flash Lite</strong> run by <strong>Google (Vertex AI)</strong>. On every request we ask OpenRouter to use only that provider, not to retain the data (Zero Data Retention) and not to use it for training; if no provider meets these constraints, the request is not sent. We do not use free models or Grok;</li>
+<li>the cleaned text, <strong>without your name, email or ID</strong>, is sent via <strong>OpenRouter</strong> (USA) to a <strong>paid</strong> AI model, one of two: <strong>Mistral Small</strong> run by <strong>Mistral AI</strong> (France) and, if it does not answer, <strong>Gemini 3.1 Flash Lite</strong> run by <strong>Google (Vertex AI)</strong>. On every request we ask OpenRouter to use only that provider, not to retain the data (Zero Data Retention) and not to use it for training; if no provider meets these constraints, the request is not sent. We do not use free models or Grok;</li>
 <li>the result is shown as a draft to review and is <strong>not stored</strong> by our server; our logs keep only counts (characters, fields filled), never the text.</li>
 </ol>
 </li>
 <li><strong>What we cannot guarantee:</strong><ul>
 <li>masking is automatic and imperfect: a foreign phone number written without a "+" prefix may get through;</li>
-<li>for Google Vertex AI we do not fix the region where the text is processed (it may be outside the EU);</li>
+<li>we ask for the EU endpoints of Mistral AI and Google Vertex AI, but the request still goes through OpenRouter (USA) and we cannot verify where each provider actually processes it;</li>
 <li>the commitment not to retain or train is the providers' and OpenRouter's, not ours: we request it through the request settings and check it against their terms, but we cannot verify it directly.</li>
 </ul>
 </li>
@@ -113,8 +113,8 @@
 <h3>3.8 AI travel estimates</h3>
 <ul>
 <li><strong>Sent:</strong> origin/destination (free text), transport (free text), distance, up to 5 destination events, language; <strong>no</strong> IP, account, email or device ID to the model. Don't type personal data in free-text fields.</li>
-<li><strong>Recipients:</strong> the request goes via <strong>OpenRouter</strong> (USA) to paid models, in this order: <strong>Mistral Small</strong> run by <strong>Mistral AI</strong> (France), then <strong>Gemini 2.5 Flash Lite</strong> run by <strong>Google (Vertex AI)</strong>; last resort, if enabled, <strong>xAI (Grok)</strong> (USA).</li>
-<li><strong>Provider use:</strong> on every OpenRouter request we ask to use only that provider, <strong>not to retain</strong> the data (Zero Data Retention) and <strong>not to train</strong> on it; if no provider meets these constraints, the request is not sent. We no longer use free models. For Google Vertex AI we do not fix the processing region. The commitment not to retain or train is the providers': we request it and check their terms but cannot verify it directly. xAI states no training on API inputs and 30-day retention for abuse monitoring.</li>
+<li><strong>Recipients:</strong> the request goes via <strong>OpenRouter</strong> (USA) to paid models, in this order: <strong>Mistral Small</strong> run by <strong>Mistral AI</strong> (France), then <strong>Gemini 3.1 Flash Lite</strong> run by <strong>Google (Vertex AI)</strong>; last resort, if enabled, <strong>xAI (Grok)</strong> (USA).</li>
+<li><strong>Provider use:</strong> on every OpenRouter request we ask to use only that provider, <strong>not to retain</strong> the data (Zero Data Retention) and <strong>not to train</strong> on it; if no provider meets these constraints, the request is not sent. We no longer use free models. We ask for the EU endpoints of Mistral AI and Google Vertex AI; the request still passes through OpenRouter (USA). The commitment not to retain or train is the providers': we request it and check their terms but cannot verify it directly. xAI states no training on API inputs and 30-day retention for abuse monitoring.</li>
 <li><strong>Our retention:</strong> Redis <strong>2 minutes</strong>; unreadable answers: first 500 chars in the 1-hour log.</li>
 <li><strong>Basis:</strong> (b). Estimates are <strong>AI-generated</strong>, fictional, for entertainment.</li>
 </ul>
@@ -123,8 +123,9 @@
 <li><strong>Data:</strong> FCM token; platform (always stored as "android", even from iPhones, so unreliable); <strong>the city associated with your device</strong> (name and centre coordinates, see below); last trip city/date; last activity, last notification date and type; uid (account users only); SHA-256 hash of a random device key.</li>
 <li><strong>Which city we store:</strong> the <strong>home city you chose</strong> (at onboarding or in Profile), with its name and <strong>catalogue centre coordinates</strong>. We do <strong>not</strong> send your GPS position: GPS is used only on the phone to show "near you" events and is not registered as your home city.</li>
 <li><strong>When:</strong> only if you granted notification permission and declared you are at least 14. Registration happens when the app opens, when you pick or change your home city and when the push token refreshes. If you revoke the permission, the app deletes the registered token from the server at the next opening.</li>
-<li><strong>What we send:</strong> Thursday/Saturday nearby weekend event; Tuesday "fantasy trip" idea; re-engagement reminder when inactive (max one per 48 h). Turn them off in phone settings.</li>
-<li><strong>Basis:</strong> consent (a) via the OS notification permission; required for promotional reminders. Without notification permission we register nothing and do not send the city where you are (fixed with #104).</li>
+<li><strong>What we send:</strong> Thursday/Saturday nearby weekend event (notification permission only); and, <strong>only if you turn on "Tips and reminders"</strong> (a separate choice, off by default), the Tuesday "fantasy trip" idea and a re-engagement reminder when inactive (max one per 48 h). Turn them off in the app Settings or in phone settings.</li>
+<li><strong>Firebase Cloud Messaging</strong> (Google) starts on your phone only after you granted the notification permission and declared you are at least 14; before that the app does not start it.</li>
+<li><strong>Basis:</strong> consent (a): the OS notification permission for the weekend suggestions, and a separate optional choice in the app ("Tips and reminders", off by default) for promotional messages, which you can withdraw at any time. We keep a record of that choice (date of the choice, version of the text shown, each change) for 24 months; if the server cannot be reached when you withdraw, the app saves the withdrawal and retries at the next opening. Without notification permission we register nothing and do not send the city where you are.</li>
 <li><strong>Retention:</strong> guests: <strong>90 days</strong> of inactivity; accounts: until sign-out, deletion or token invalidation, <strong>no inactivity expiry</strong>.</li>
 </ul>
 <h3>3.10 Rain alerts and event reminders (Premium)</h3>
@@ -132,8 +133,8 @@
 <ul>
 <li><strong>Rain alerts:</strong> trip name, destination coordinates, date/recurrence, linked to the push token; daily Open-Meteo query with ~1 km rounded coordinates and no identifiers; Open-Meteo logs coordinates up to 90 days; deleted when switched off, after the trip date, or with token/account; <strong>recurring trips without end date never expire</strong>.</li>
 <li><strong>Event reminders:</strong> event ID, name, place, dates; deleted when the event starts.</li>
-<li><strong>Premium/admin lists:</strong> emails in clear in Redis (Upstash), <strong>no expiry</strong>, not removed on account deletion. The same Redis database is <strong>shared by the test and production environments</strong>, separated only by a prefix, so whoever runs the test environment can technically read these lists.</li>
-<li><strong>Route quality (weather and road type):</strong> the <strong>full</strong> origin and destination coordinates are sent to <strong>OpenRouteService (HeiGIT, Germany)</strong>; the origin may be your precise GPS position if enabled. Results are cached 7 days without identifiers, keyed by ~500 m cells.</li>
+<li><strong>Premium/admin lists:</strong> emails in clear in Redis (Upstash), <strong>no expiry</strong>; your email is removed from the Premium list when you delete your account. The test environment uses a separate Redis database.</li>
+<li><strong>Route quality (weather and road type):</strong> origin and destination coordinates, snapped to cells of about 500 m, are sent to <strong>OpenRouteService (HeiGIT, Germany)</strong>; the origin may be derived from your precise GPS position if enabled. Results are cached 7 days without identifiers, keyed by the same ~500 m cells.</li>
 <li><strong>Basis:</strong> (b).</li>
 </ul>
 <h3>3.11 Location</h3>
@@ -141,31 +142,32 @@
 <ul>
 <li><strong>City near you:</strong> if location is granted, the app uses it <strong>on the phone</strong> to find the nearest city and show "near you" events. That city is not sent to the server as your home city (§3.9).</li>
 <li><strong>"Use my position":</strong> GPS <strong>rounded to 2 decimals (about 1 km)</strong> <strong>directly from your phone</strong> to <strong>OpenStreetMap Nominatim</strong> (UK), which finds the municipality and also gets your IP. <strong>We don't store them; Nominatim may log IP and request</strong>.</li>
-<li><strong>Address autocomplete:</strong> typed text and an area around the city <strong>directly from your phone</strong> to <strong>Photon (komoot GmbH, Germany)</strong>, with your IP; no specific privacy notice from komoot.</li>
-<li><strong>Isochrone and map:</strong> the map uses your actual GPS position (the precise one, not just the city) as the starting point. Coordinates rounded to 4 decimals (~11 m) to our server, then to <strong>OpenRouteService (HeiGIT)</strong>, which sees our server's IP; cached on your phone 7-30 days.</li>
+<li><strong>Address autocomplete:</strong> from the third character, the typed text and an area around the city go <strong>directly from your phone</strong> to <strong>Photon (komoot GmbH, Germany)</strong>, with your IP, even if you then do not save the event; no specific privacy notice from komoot. The app shows a note under the field and a button to type the address without suggestions, in which case nothing is sent.</li>
+<li><strong>Isochrone and map:</strong> the map uses your actual GPS position (the precise one, not just the city) as the starting point. Coordinates rounded to 4 decimals (~11 m) reach our server, which snaps them to a cell of about 500 m before sending them to <strong>OpenRouteService (HeiGIT)</strong>, which sees our server's IP; cached on your phone 7-30 days.</li>
 <li><strong>Route quality:</strong> §3.10. <strong>Basis:</strong> (b), except §3.9 for the notification city.</li>
 </ul>
 <h3>3.12 Usage statistics (Firebase Analytics)</h3>
 <ul>
 <li><strong>Data:</strong> app instance ID, usage events, device/OS info, Google-inferred country/area — <strong>pseudonymous</strong>, not anonymous; no advertising ID.</li>
-<li><strong>Basis:</strong> <strong>consent</strong>; off until you accept; revocable in Settings (also resets local analytics data).</li>
+<li><strong>Basis:</strong> <strong>consent</strong>; off until you accept; revocable in Settings. Revoking stops collection and resets the Analytics data on your phone; it does <strong>not</strong> by itself delete the history already held by Google (see "Deletion" below).</li>
+<li><strong>Minors:</strong> if you declare you are under 14 you cannot turn statistics on, and a consent already given is revoked when you answer. The free text typed for an AI estimate (e.g. the means of transport) is never sent to Analytics: only the fact that a request was made.</li>
 <li><strong>Previously collected consents:</strong> if you gave consent with the dialog of earlier versions, which did not explain that the data are pseudonymous, that Google may process them in the US and did not link to this policy, the app asks you again with the updated dialog.</li>
-<li><strong>Proof of consent:</strong> random installation code (not linked to your account), choice, date; a choice is deleted 24 months after it ends (when replaced by a later choice or, for a refusal, when it was made); a consent still in force is kept, since it proves the consent. Not exported nor erased with the account.</li>
-<li><strong>Deletion:</strong> Analytics data at Google are tied to the installation, not the account: <strong>deleting your account does not delete them</strong>; revoke consent in Settings first.</li>
+<li><strong>Proof of consent:</strong> random installation code (not linked to your account), choice, date of the choice on your phone and date received, version of the text shown; a choice is deleted 24 months after it ends (when replaced by a later choice or, for a refusal, when it was made); a consent still in force is kept, since it proves the consent. Not exported nor erased with the account.</li>
+<li><strong>Deletion:</strong> Analytics data at Google are tied to the installation, not the account: <strong>deleting your account does not delete them</strong>. To ask for deletion of the history already collected, write to the contact in §1 before uninstalling the app: we will tell you how to identify the installation and we will submit the request to Google. Guests can also download the consent record from Settings (§9).</li>
 <li><strong>Retention at Google:</strong> at most 14 months, per the Analytics data-retention setting. Google acts under separate terms.</li>
 </ul>
 <h3>3.13 Handling your requests</h3>
 <p>Request content and email; basis (c); retained up to 24 months after the request is closed, to prove we answered.</p>
 <h3>3.14 Content reports</h3>
-<p>reason, optional text (≤500 chars), date; your uid if you have an account; if you report without an account, the hash of a random installation key (not linked to an account) and, if you want the outcome, your email. The publisher doesn't see who reported; admins see reason/text, not uid. Basis (c) DSA Art. 16, (f). A closed report is deleted 12 months after closure; an open one is kept until reviewed; uid/text erased on account deletion.</p>
+<p>reason, optional text (≤500 chars), date; your uid if you have an account; if you report without an account, the hash of a random installation key (not linked to an account) and, if you want the outcome, your email. The publisher doesn't see who reported; admins see reason/text, and the email if you left one, not your uid. Basis (c) DSA Art. 16, (f). A closed report is deleted 12 months after closure; an open one is kept until reviewed; uid/text erased on account deletion.</p>
 <h3>3.15 Web share pages and information pages</h3>
-<p>Share pages (<code>/e/…</code>, <code>/v</code>, on Vercel) load <strong>Vercel Web Analytics and Speed Insights</strong> (not for private events; no first-party cookies). This policy and the Terms are on <strong>GitHub Pages</strong> (GitHub, USA), which receives visitors' IP. Basis (f) unless counsel requires consent.</p>
+<p>Share pages (<code>/e/…</code>, <code>/v</code>, on Vercel) load no analytics or measuring scripts and set no first-party cookies. This policy and the Terms are on <strong>GitHub Pages</strong> (GitHub, USA), which receives visitors' IP. Basis (f).</p>
 <h3>3.16 Direct connections from your phone</h3>
-<p>Receive your IP and device data: <strong>Google Fonts</strong> at first launch before any consent; <strong>OpenStreetMap tiles</strong> via a global CDN, with the map area viewed; <strong>Wikimedia</strong> welcome image (USA); <strong>event images</strong> from source sites; <strong>Google Maps</strong> on tap only. Independent controllers.</p>
+<p>Receive your IP and device data: <strong>OpenStreetMap tiles</strong> via a global CDN, with the map area viewed; <strong>Wikimedia</strong> welcome image (USA); <strong>event images</strong> from source sites; <strong>Google Maps</strong> on tap only. Independent controllers.</p>
 <h3>3.17 Events from public sources (Art. 14 notice)</h3>
-<p>Automatically collected from event sites, ticketing, open-data portals, Wikidata; no organiser contact fields, but descriptions may contain names/contacts. <strong>Basis:</strong> (f). Title, description (≤800 chars), place and city may go to <strong>Jev (TypeSafe)</strong> via OpenRouter for categorisation and duplicate detection. Categorisation excludes user and private events; <strong>deduplication can include user events, private ones too, and modify them</strong> (§3.5). Deleted after end date. To object, email the §1 contact (no account needed).</p>
+<p>Automatically collected from event sites, ticketing, open-data portals, Wikidata; no organiser contact fields, but descriptions may contain names/contacts. <strong>Basis:</strong> (f). Title, description (≤800 chars), place and city may go to <strong>Jev (TypeSafe)</strong> via OpenRouter for categorisation and duplicate detection. Categorisation and deduplication exclude events published by users and private events (§3.5). Deleted after end date; the working copies used to check sources (candidate records and their evidence) are deleted 30 days after the source stops listing them or 30 days after the event ends. A copy of the collected public events is also kept in our test environment. To object, email the §1 contact (no account needed).</p>
 <h3>3.18 Restaurants (suspended)</h3>
-<p>Disabled. When active, the server used <strong>Google Places</strong> to verify places and fetch photos. Past restaurants, personal tags and hidden items remain linked to your uid and are <strong>not erased on account deletion</strong>.</p>
+<p>Disabled. When active, the server used <strong>Google Places</strong> to verify places and fetch photos. Restaurants, personal tags and hidden items you entered in the past are erased when you delete your account.</p>
 <h3>3.19 Data kept only on your phone</h3>
 <p>Preferences, <strong>favourites</strong>, saved trips, reminders, consent choice, caches. <strong>Note:</strong> your home city (if you granted notifications) and reminders are <strong>also sent to our server</strong> (§3.9, §3.10). Android backup disabled; iOS preferences may be in iCloud backups.</p>
 
@@ -181,30 +183,30 @@
 <p><strong>5.1 Processors (Art. 28):</strong>
 | Provider | Service | Location | Contract status |
 |---|---|---|---|
-| Vercel Inc. | backend hosting, logs, Web Analytics/Speed Insights | USA (<code>iad1</code>) | <strong>No DPA on the Hobby plan in use; terms allow AI training on content</strong> |
+| Vercel Inc. | backend hosting, logs | USA (<code>iad1</code>) | <strong>No DPA on the Hobby plan in use; terms allow AI training on content</strong> |
 | Supabase Inc. | database, storage | EU (Ireland, <code>eu-west-1</code>) | DPA in terms |
-| Upstash Inc. | limits, IP blocks, cache, Premium/admin emails (DB shared test/prod) | | DPA in terms |
+| Upstash Inc. | limits, IP blocks, cache, Premium/admin emails | | DPA in terms |
 | Google (Firebase) | Auth, FCM, App Check | Auth US-only; others global | Firebase terms |
 | Google (Cloud Vision) | image check, poster OCR | global | Cloud DPA |
 | OpenRouter Inc. | AI routing | USA | DPA for commercial use |</p>
 <p><strong>5.2 AI model providers:</strong> Mistral AI (France) and Google (Vertex AI), paid models with no retention or training requested (§3.7, §3.8); xAI (if enabled); TypeSafe.</p>
-<p><strong>5.3 Independent controllers:</strong> Google (Analytics, Play Integrity, Fonts, Maps), Apple, OSM Foundation, komoot, HeiGIT, Open-Meteo, Wikimedia, GitHub, image source sites, authorities when required.</p>
+<p><strong>5.3 Independent controllers:</strong> Google (Analytics, Play Integrity, Maps), Apple, OSM Foundation, komoot, HeiGIT, Open-Meteo, Wikimedia, GitHub, image source sites, authorities when required.</p>
 <p><strong>5.4 Authorised persons:</strong> controller and admins (moderation queue incl. submitter name/email, reports).</p>
 
   </div>
   <div class="section">
 <h2>6. Whether providing data is required</h2>
-<p>Browsing requires no identifying data, but IP/requests are needed. A Google/Apple account is needed only to publish/report, self-service export/deletion and Premium. Location, notifications and analytics are optional.</p>
+<p>Browsing requires no identifying data, but IP/requests are needed. A Google/Apple account is needed only to publish, to export or delete your account data and for Premium; you can report content without an account. Location, notifications and analytics are optional.</p>
 
   </div>
   <div class="section">
 <h2>7. Children</h2>
-<p>Under-14 access to AI requires parental consent in Italy (Art. 4(4) Law 132/2025, in force 10/10/2025); digital consent age 14 (Art. 2-quinquies It. Privacy Code). VattenAI is intended for people aged <strong>14 or over</strong>. At launch we ask you to declare you are at least 14 and you cannot continue without it. <strong>This declaration is not verified</strong>: if we learn an under-14 has an account without the consent of the person with parental responsibility, we delete it.</p>
+<p>Under-14 access to AI requires parental consent in Italy (Art. 4(4) Law 132/2025, in force 10/10/2025); digital consent age 14 (Art. 2-quinquies It. Privacy Code). VattenAI is intended for people aged <strong>14 or over</strong>. At launch we ask you to declare you are at least 14 and you cannot continue without it (people who installed an earlier version are asked once, at the next opening). If you declare you are under 14 you can still browse events and the map, but you cannot use AI estimates, accounts, publishing, notifications or usage statistics. <strong>This declaration is not verified</strong>: if we learn an under-14 has an account without the consent of the person with parental responsibility, we delete it.</p>
 
   </div>
   <div class="section">
 <h2>8. Transfers outside the EU</h2>
-<p><strong>Vercel</strong> (USA, all requests): DPF claimed; SCCs only in the DPA, <strong>not available on the plan in use</strong>. <strong>Google/Firebase</strong>: Auth US-only; DPF + SCCs. <strong>Upstash</strong>: DPF + SCCs. <strong>Supabase</strong>: data in Ireland; SCCs for Singapore entity and sub-processors. <strong>OpenRouter</strong>: USA, SCCs. <strong>Google (Vertex AI), xAI</strong>: USA. <strong>Mistral AI</strong>: France (EU), via OpenRouter (USA). HeiGIT states non-EU transfers; OSMF in the UK (adequacy); Wikimedia and GitHub in the USA. DPF valid but under appeal (C-703/25 P). You may request the safeguards.</p>
+<p><strong>Vercel</strong> (USA, all requests): DPF claimed; SCCs only in the DPA, <strong>not available on the plan in use</strong>. <strong>Google/Firebase</strong>: Auth US-only; DPF + SCCs. <strong>Upstash</strong>: DPF + SCCs. <strong>Supabase</strong>: data in Ireland; SCCs for Singapore entity and sub-processors. <strong>OpenRouter</strong>: USA, SCCs. <strong>Google (Vertex AI)</strong>: we request the EU endpoint, but the request passes through OpenRouter (USA). <strong>xAI</strong>: USA. <strong>Mistral AI</strong>: France (EU), via OpenRouter (USA). HeiGIT states non-EU transfers; OSMF in the UK (adequacy); Wikimedia and GitHub in the USA. DPF valid but under appeal (C-703/25 P). You may request the safeguards.</p>
 
   </div>
   <div class="section">
@@ -212,11 +214,11 @@
 <p><a href="delete-account.html"><strong>How to delete your account and data, step by step</strong></a></p>
 <p>Access (15), rectification (16), erasure (17), restriction (18), portability (20), <strong>objection</strong> (21), <strong>withdraw consent</strong> anytime (7(3)).</p>
 <ul>
-<li><strong>In app</strong> (accounts): Settings → "Get all my data" / "Delete account"; analytics toggle.</li>
-<li><strong>By email</strong> to the §1 contact (guests and non-users too); we may ask you to write from your account email. <strong>Guests:</strong> a guest account has no email or name, so we usually cannot reliably link a request to your data; we will tell you so unless you provide additional information (Art. 11(2)); the account self-deletes after 30 days of inactivity.</li>
+<li><strong>In app</strong>: accounts — Settings → "Get all my data" / "Delete account"; guests — Settings → "Download this device's data" / "Delete this device's data"; analytics and "Tips and reminders" switches.</li>
+<li><strong>By email</strong> to the §1 contact (guests and non-users too); we may ask you to write from your account email. <strong>Guests:</strong> a guest account has no email or name, so by email we usually cannot link a request to your data. That is why the app lets you download or delete, from Settings, what the server holds for your installation (notification registration, alerts, reminders, consent records); consent records are kept for their own period (§3.12). The account self-deletes after 30 days of inactivity.</li>
 <li><strong>Reply within one month</strong>, extendable by two months for complex requests (notified within the first month) (Art. 12(3)).</li>
-<li><strong>Export includes:</strong> profile; created events (incl. stored name/email); for notifications: platform, stored city and coordinates, last activity (not the token); rain alerts; reminders; unlocked private events. <strong>Not included:</strong> last trip city/date, last notification date/type, device-key hash; your reports; organisers; restaurant data; images (URL only). Ask by email.</li>
-<li><strong>Account deletion:</strong> removes Firebase account, push data (with alerts/reminders), evidence, private-event access, uploaded images, Terms acceptances and organisers left with no events; anonymises reports; empties your events leaving a stub without content or author. <strong>Not removed:</strong> restaurant data, your email in Premium/admin lists, the consent record (own expiry, §3.12), Analytics data at Google (§3.12). Failed steps retried nightly.</li>
+<li><strong>Export includes:</strong> profile; created events (incl. stored name); for notifications: platform, stored city and coordinates, last trip city/date, last activity, last notification date/type and your choice on "Tips and reminders" (not the token); rain alerts; reminders; unlocked private events; your own reports; restaurant data you entered; Terms acceptances. <strong>Not included:</strong> device-key hash; organisers; images (URL only); your email in the Premium/admin lists; the installation's consent record (guests can download it, see above). Ask by email.</li>
+<li><strong>Account deletion:</strong> removes Firebase account, push data (with alerts/reminders), evidence, private-event access, uploaded images, Terms acceptances, restaurant data, your email in the Premium list and organisers left with no events; anonymises reports; empties your events leaving a stub with a generic title, dates, category and city, without content or author. <strong>Not removed:</strong> the consent record (own expiry, §3.12), Analytics data at Google (§3.12), and any email written in the administrators' server configuration. Failed steps retried nightly.</li>
 <li><strong>Backups:</strong> database backups, if any, may contain already-deleted data until they expire.</li>
 </ul>
 
@@ -233,14 +235,14 @@
   </div>
   <div class="section">
 <h2>12. Changes</h2>
-<p>Material changes notified in the app before they take effect.</p>
+<p>Material changes are announced in the app, before they take effect, with a notice that states the date from which they apply.</p>
   </div>
 </div>
 
 <!-- ITALIANO -->
 <div id="it" class="hidden">
   <h1>VattenAI</h1>
-  <p class="subtitle">Informativa sulla privacy — Ultimo aggiornamento: 10 ottobre 2026</p>
+  <p class="subtitle">Informativa sulla privacy — Ultimo aggiornamento: 25 ottobre 2026</p>
   <div class="section">
 <h2>1. Chi è il titolare e come contattarlo</h2>
 <p>Titolare del trattamento: <strong>Federico Ribaldi</strong>, persona fisica, sviluppatore individuale di VattenAI. Posta elettronica certificata (PEC): <strong>federico.ribaldi@pec.it</strong>.</p>
@@ -297,7 +299,7 @@
 <li><strong>Dati:</strong> identificativo dell'account (uid Firebase), indirizzo email, nome visualizzato, fornitore di accesso (Google o Apple).</li>
 <li><strong>Scopo e base:</strong> pubblicare eventi, segnalare contenuti, esportare o cancellare in autonomia i tuoi dati, usare le funzioni Premium (b).</li>
 <li><strong>Conservazione:</strong> fino alla cancellazione dell'account. Dopo la cancellazione Google può conservare i dati di autenticazione fino a 180 giorni e i log con l'IP di accesso "per qualche settimana".</li>
-<li><strong>Nota importante:</strong> quando crei un evento, <strong>salviamo nel nostro database il tuo nome e la tua email</strong> insieme all'evento (campi <code>submitter_name</code> e <code>submitter_email</code>), per la moderazione. Questi campi <strong>non sono mai mostrati pubblicamente</strong>: li vedi solo tu (in "i tuoi eventi") e gli amministratori nella coda di moderazione.</li>
+<li><strong>Nota importante:</strong> quando crei un evento, <strong>salviamo insieme all'evento il tuo nome</strong> (campo <code>submitter_name</code>), per la moderazione. <strong>Non</strong> salviamo la tua email con l'evento: quando un amministratore lo valuta, l'email viene letta in quel momento dal tuo account Firebase e mostrata solo a lui. Non è mai pubblica. Le email salvate con gli eventi creati prima di questa modifica sono state cancellate.</li>
 </ul>
 <h3>3.5 Eventi che pubblichi (contenuti generati dagli utenti)</h3>
 <ul>
@@ -307,14 +309,15 @@
 </ul>
 </li>
 <li><strong>Eventi privati:</strong> non compaiono negli elenchi, ma <strong>chiunque abbia il link</strong> (un identificativo casuale) ne vede descrizione, luogo e indirizzo senza account.</li>
-<li><strong>Organizzatori:</strong> se indichi un organizzatore nuovo, il suo nome e la sua città finiscono in un elenco <strong>consultabile da chiunque usi l'app, anche senza account</strong>: basta ripetere le ricerche per scaricarlo tutto. Non inserire il nome di una persona privata se non hai il diritto di farlo.</li>
-<li><strong>Geocodifica:</strong> se un evento non ha coordinate, il nostro server invia il testo dell'indirizzo o del luogo, la città e la provincia a OpenStreetMap Nominatim per ricavarle. Lo fa per <strong>tutti</strong> gli eventi senza coordinate, <strong>compresi quelli privati, quelli non ancora approvati e quelli che hai eliminato</strong>.</li>
-<li><strong>Deduplica con fonti pubbliche:</strong> se un evento raccolto da una fonte pubblica sembra lo stesso del tuo (stessa città e data, nome simile), il sistema di deduplica può <strong>sovrascrivere sul tuo evento</strong>, anche se privato, descrizione, luogo, indirizzo, immagine, prezzo e date presi dalla fonte pubblica. Quando è attivo il controllo con IA, il tuo evento viene anche inviato a Jev (§3.17).</li>
+<li><strong>Organizzatori:</strong> se indichi un organizzatore nuovo, il suo nome e la sua città finiscono in un elenco di organizzatori. La ricerca mostra solo gli organizzatori di eventi già pubblici e visibili, ma è aperta a <strong>chiunque usi l'app, anche senza account</strong>. Non inserire il nome di una persona privata se non hai il diritto di farlo.</li>
+<li><strong>Geocodifica:</strong> per gli eventi pubblici raccolti da fonti pubbliche che non hanno coordinate, il nostro server invia il testo dell'indirizzo o del luogo, la città e la provincia a OpenStreetMap Nominatim per ricavarle. Gli eventi pubblicati dagli utenti — compresi quelli privati, in attesa, bozze o eliminati — non vengono mai inviati.</li>
+<li><strong>Deduplica:</strong> il sistema di deduplica confronta tra loro gli eventi raccolti da fonti pubbliche. Non legge, non modifica e non invia a terzi gli eventi pubblicati dagli utenti, compresi quelli privati (§3.17).</li>
 <li><strong>Scopo e base:</strong> pubblicare il contenuto che hai chiesto di pubblicare (b); moderazione e tutela degli altri utenti (f); gestione delle segnalazioni previste dal Regolamento (UE) 2022/2065 "DSA" (c).</li>
 <li><strong>Conservazione:</strong><ul>
 <li>gli eventi degli utenti vengono cancellati <strong>14 giorni dopo la data di fine</strong> (7 giorni se privati). <strong>La data di fine non ha un limite massimo</strong> (è limitata solo la data di inizio, entro un anno): un evento con una data di fine molto lontana resta pubblicato e conservato fino a quella data.</li>
-<li>se elimini tu un evento, viene prima solo marcato come eliminato e sparisce dagli elenchi. Chi ha il link vede però ancora <strong>nome, date, categoria e città</strong> fino alla cancellazione definitiva, che avviene al termine sopra o quando cancelli l'account.</li>
-<li><strong>le immagini caricate</strong>, comprese quelle di eventi mai salvati, restano nell'archivio anche dopo che il sistema ha cancellato l'evento, fino alla cancellazione del tuo account.</li>
+<li>le <strong>bozze</strong> che non modifichi da 180 giorni vengono cancellate.</li>
+<li>se elimini tu un evento, il suo contenuto (descrizione, luogo, indirizzo, note, prezzo, immagini, prove, legame con l'organizzatore) viene tolto subito e resta solo una traccia tecnica — un titolo generico ("Evento non più presente"), le date, la categoria e la città — che <strong>chi ha il link può ancora vedere</strong> fino alla cancellazione definitiva, al termine sopra o quando cancelli l'account. Se un amministratore rimuove un evento, il motivo viene conservato perché tu possa contestarlo.</li>
+<li>le <strong>immagini</strong> vengono cancellate insieme all'evento; quelle caricate ma mai collegate a un evento vengono cancellate dopo 30 giorni; se l'archivio non risponde, la rimozione viene ritentata nelle notti successive.</li>
 <li>gli organizzatori che non hanno più nessun evento collegato vengono cancellati ogni notte e quando cancelli l'account.</li>
 </ul>
 </li>
@@ -323,7 +326,7 @@
 <ul>
 <li><strong>Dati:</strong> l'immagine che carichi, che può ritrarre persone o contenere testo.</li>
 <li><strong>Trattamento:</strong> prima di essere salvata, l'immagine viene inviata a <strong>Google Cloud Vision (SafeSearch)</strong>, che rileva contenuti espliciti o violenti. Se il controllo la segnala o non risponde, l'upload viene rifiutato. <strong>Il controllo non si applica alle immagini caricate dagli amministratori</strong>. Google dichiara di non usare le immagini per addestrare i propri modelli e di trattarle solo in memoria.</li>
-<li><strong>Metadati (EXIF):</strong> prima dell'invio l'app ricomprime le foto, operazione che di norma rimuove metadati come la posizione GPS dello scatto. Il nostro server <strong>non</strong> ripulisce i metadati.</li>
+<li><strong>Metadati (EXIF):</strong> prima dell'invio l'app ricomprime le foto e il nostro server toglie comunque dai file che salva i metadati (posizione GPS EXIF, XMP, IPTC, commenti), senza modificare i pixel.</li>
 <li><strong>Base:</strong> (b) per la pubblicazione; (f) per il controllo di sicurezza.</li>
 <li><strong>Conservazione:</strong> come al §3.5.</li>
 </ul>
@@ -334,13 +337,13 @@
 <li><strong>Cosa fa:</strong><ol>
 <li>l'immagine viene inviata a <strong>Google Cloud Vision</strong>, che ne riconosce il testo (non la salviamo qui: l'eventuale immagine di copertina segue il flusso del §3.6);</li>
 <li>dal testo riconosciuto <strong>oscuriamo email, IBAN e numeri di telefono</strong>, sostituendoli con "[email]", "[iban]" e "[telefono]", e lo tagliamo a 3000 caratteri. Nomi e indirizzi <strong>non</strong> vengono oscurati;</li>
-<li>il testo così ripulito, <strong>senza il tuo nome, la tua email o il tuo identificativo</strong>, viene inviato tramite <strong>OpenRouter</strong> (USA) a un modello di intelligenza artificiale <strong>a pagamento</strong>, scelto tra due: <strong>Mistral Small</strong> eseguito da <strong>Mistral AI</strong> (Francia) e, se non risponde, <strong>Gemini 2.5 Flash Lite</strong> eseguito da <strong>Google (Vertex AI)</strong>. Su ogni richiesta chiediamo a OpenRouter di usare solo quel fornitore, di non conservare i dati (Zero Data Retention) e di non usarli per l'addestramento; se nessun fornitore rispetta questi vincoli, la richiesta non parte. Non usiamo i modelli gratuiti né Grok;</li>
+<li>il testo così ripulito, <strong>senza il tuo nome, la tua email o il tuo identificativo</strong>, viene inviato tramite <strong>OpenRouter</strong> (USA) a un modello di intelligenza artificiale <strong>a pagamento</strong>, scelto tra due: <strong>Mistral Small</strong> eseguito da <strong>Mistral AI</strong> (Francia) e, se non risponde, <strong>Gemini 3.1 Flash Lite</strong> eseguito da <strong>Google (Vertex AI)</strong>. Su ogni richiesta chiediamo a OpenRouter di usare solo quel fornitore, di non conservare i dati (Zero Data Retention) e di non usarli per l'addestramento; se nessun fornitore rispetta questi vincoli, la richiesta non parte. Non usiamo i modelli gratuiti né Grok;</li>
 <li>il risultato ti viene proposto come bozza da controllare e <strong>non viene salvato</strong> dal nostro server; nei nostri log restano solo conteggi (caratteri, campi compilati), mai il testo.</li>
 </ol>
 </li>
 <li><strong>Cosa non possiamo garantirti:</strong><ul>
 <li>l'oscuramento è automatico e imperfetto: un numero di telefono estero scritto senza prefisso "+" può passare;</li>
-<li>per Google Vertex AI non fissiamo noi la regione in cui il testo viene elaborato (può essere fuori dall'Unione Europea);</li>
+<li>chiediamo gli endpoint UE di Mistral AI e di Google Vertex AI, ma la richiesta passa comunque da OpenRouter (USA) e non possiamo verificare dove ciascun fornitore la elabori davvero;</li>
 <li>l'impegno a non conservare né addestrare è dei fornitori e di OpenRouter, non nostro: lo richiediamo con le impostazioni della richiesta e lo verifichiamo sui loro termini, ma non lo controlliamo direttamente.</li>
 </ul>
 </li>
@@ -361,8 +364,8 @@
 </ul>
 <p>Al modello <strong>non</strong> inviamo IP, account, email né identificativi del dispositivo: l'IP serve solo per il limite di richieste. Se scrivi dati personali nei campi di testo libero (per esempio "casa di Mario Rossi"), questi arrivano al modello: <strong>non farlo</strong>.</p>
 <ul>
-<li><strong>Destinatari:</strong> la richiesta viene inviata tramite <strong>OpenRouter</strong> (USA) a modelli a pagamento, in quest'ordine: <strong>Mistral Small</strong>, eseguito da <strong>Mistral AI</strong> (Francia), e se non risponde <strong>Gemini 2.5 Flash Lite</strong>, eseguito da <strong>Google (Vertex AI)</strong>. Come ultima riserva, se è attiva, <strong>xAI (Grok)</strong> (USA).</li>
-<li><strong>Come i fornitori usano i dati:</strong> su ogni richiesta a OpenRouter chiediamo di usare solo il fornitore indicato, di <strong>non conservare</strong> i dati (Zero Data Retention) e di <strong>non usarli per addestrare</strong> i modelli; se nessun fornitore rispetta questi vincoli, la richiesta non parte. Non usiamo più i modelli gratuiti. Per Google Vertex AI non fissiamo la regione di elaborazione. L'impegno a non conservare né addestrare è dei fornitori: lo richiediamo e lo verifichiamo sui loro termini, ma non lo controlliamo direttamente. xAI dichiara di non addestrare sugli input inviati tramite API e di conservarli 30 giorni contro gli abusi.</li>
+<li><strong>Destinatari:</strong> la richiesta viene inviata tramite <strong>OpenRouter</strong> (USA) a modelli a pagamento, in quest'ordine: <strong>Mistral Small</strong>, eseguito da <strong>Mistral AI</strong> (Francia), e se non risponde <strong>Gemini 3.1 Flash Lite</strong>, eseguito da <strong>Google (Vertex AI)</strong>. Come ultima riserva, se è attiva, <strong>xAI (Grok)</strong> (USA).</li>
+<li><strong>Come i fornitori usano i dati:</strong> su ogni richiesta a OpenRouter chiediamo di usare solo il fornitore indicato, di <strong>non conservare</strong> i dati (Zero Data Retention) e di <strong>non usarli per addestrare</strong> i modelli; se nessun fornitore rispetta questi vincoli, la richiesta non parte. Non usiamo più i modelli gratuiti. Chiediamo gli endpoint UE di Mistral AI e di Google Vertex AI; la richiesta passa comunque da OpenRouter (USA). L'impegno a non conservare né addestrare è dei fornitori: lo richiediamo e lo verifichiamo sui loro termini, ma non lo controlliamo direttamente. xAI dichiara di non addestrare sugli input inviati tramite API e di conservarli 30 giorni contro gli abusi.</li>
 <li><strong>Conservazione presso di noi:</strong> il risultato resta in una memoria temporanea (Redis) per <strong>2 minuti</strong>, per evitare richieste doppie. Se la risposta del modello non è leggibile, i suoi primi 500 caratteri finiscono nel log tecnico, conservato 1 ora (§3.1).</li>
 <li><strong>Base:</strong> (b).</li>
 <li><strong>Natura del contenuto:</strong> le stime sono <strong>generate da un sistema di intelligenza artificiale</strong>, sono inventate e servono a intrattenere (vedi Termini).</li>
@@ -382,15 +385,15 @@
 <li><strong>Quale città registriamo:</strong> la <strong>città di casa che hai scelto tu</strong> (all'onboarding o dal Profilo), con il nome e le <strong>coordinate del suo centro</strong> prese dal catalogo delle città. <strong>Non</strong> inviamo la tua posizione GPS: il GPS serve solo sul telefono per mostrarti gli eventi "vicino a te" e non viene registrato come città di casa.</li>
 <li><strong>Quando:</strong> solo se hai concesso il permesso alle notifiche e hai dichiarato di avere almeno 14 anni. La registrazione avviene all'apertura dell'app, quando scegli o cambi la città di casa e quando il token di notifica si rinnova. Se revochi il permesso, alla successiva apertura l'app cancella dal server il token registrato.</li>
 <li><strong>Notifiche che inviamo</strong>:<ul>
-<li>giovedì e sabato, un evento del fine settimana vicino alla città registrata;</li>
-<li>il martedì, un suggerimento di "viaggio fantasy";</li>
-<li>se non apri l'app da un po', un promemoria (al massimo uno ogni 48 ore).</li>
+<li>giovedì e sabato, un evento del fine settimana vicino alla città registrata (basta il permesso alle notifiche);</li>
+<li>solo se attivi "Suggerimenti e promemoria" (scelta separata, spenta all'inizio): il martedì, un suggerimento di "viaggio fantasy" e, se non apri l'app da un po', un promemoria (al massimo uno ogni 48 ore).</li>
 </ul>
 </li>
+<li><strong>Firebase Cloud Messaging</strong> (Google) parte sul tuo telefono solo dopo che hai concesso il permesso alle notifiche e dichiarato di avere almeno 14 anni; prima l'app non lo avvia.</li>
 </ul>
 <p>Puoi disattivarle dalle impostazioni del telefono.</p>
 <ul>
-<li><strong>Base:</strong> consenso (a), espresso concedendo il permesso alle notifiche del sistema operativo. Per i promemoria, che hanno natura promozionale, il consenso è necessario. Senza il permesso alle notifiche non registriamo nulla e non inviamo la città in cui ti trovi.</li>
+<li><strong>Base:</strong> consenso (a): il permesso alle notifiche del sistema operativo per i suggerimenti del fine settimana, e una scelta separata e facoltativa nell'app ("Suggerimenti e promemoria", spenta all'inizio) per i messaggi promozionali, che puoi revocare in qualsiasi momento. Conserviamo una prova di questa scelta (data della scelta, versione del testo mostrato, ogni cambiamento) per 24 mesi; se il server non è raggiungibile quando revochi, l'app salva la revoca e riprova alla successiva apertura. Senza il permesso alle notifiche non registriamo nulla e non inviamo la città in cui ti trovi.</li>
 <li><strong>Conservazione:</strong><ul>
 <li>per gli ospiti, il token viene cancellato dopo <strong>90 giorni</strong> di inattività;</li>
 <li>per gli account, il token resta fino al logout, alla cancellazione dell'account o a quando diventa non valido, per esempio dopo la disinstallazione. <strong>Per gli account non c'è una scadenza per inattività</strong>.</li>
@@ -407,8 +410,8 @@
 </ul>
 </li>
 <li><strong>Promemoria degli eventi:</strong> identificativo, nome, luogo e date dell'evento, collegati al token di notifica. Vengono cancellati quando l'evento inizia.</li>
-<li><strong>Elenchi Premium e amministratori:</strong> le email degli utenti Premium e degli amministratori aggiuntivi sono conservate in chiaro nel database Redis (Upstash), <strong>senza scadenza</strong> e senza rimozione automatica quando cancelli l'account. Lo stesso database Redis è <strong>condiviso tra l'ambiente di test e quello di produzione</strong>, separati solo da un prefisso: chi gestisce l'ambiente di test può tecnicamente leggere questi elenchi.</li>
-<li><strong>Qualità del percorso (meteo e tipo di strada):</strong> le coordinate <strong>piene</strong> dell'origine e della destinazione vengono inviate a <strong>OpenRouteService (HeiGIT, Germania)</strong>. L'origine può essere la tua posizione GPS precisa, se l'hai attivata. Il risultato viene conservato in cache per 7 giorni senza identificativi, con una chiave basata su celle di circa 500 m.</li>
+<li><strong>Elenchi Premium e amministratori:</strong> le email degli utenti Premium e degli amministratori aggiuntivi sono conservate in chiaro nel database Redis (Upstash), <strong>senza scadenza</strong>; la tua email viene tolta dall'elenco Premium quando cancelli l'account. L'ambiente di test usa un database Redis separato.</li>
+<li><strong>Qualità del percorso (meteo e tipo di strada):</strong> le coordinate dell'origine e della destinazione, portate a celle di circa 500 m, vengono inviate a <strong>OpenRouteService (HeiGIT, Germania)</strong>. L'origine può derivare dalla tua posizione GPS precisa, se l'hai attivata. Il risultato viene conservato in cache per 7 giorni senza identificativi, con una chiave basata sulle stesse celle di circa 500 m.</li>
 <li><strong>Base:</strong> (b).</li>
 </ul>
 <h3>3.11 Posizione</h3>
@@ -416,8 +419,8 @@
 <ul>
 <li><strong>Città vicina a te:</strong> se hai concesso la posizione, l'app la usa <strong>sul telefono</strong> per trovare la città più vicina e mostrarti gli eventi "vicino a te". Questa città non viene inviata al server come città di casa (§3.9).</li>
 <li><strong>"Usa la mia posizione":</strong> le coordinate GPS, <strong>arrotondate a 2 decimali (circa 1 km)</strong>, partono <strong>direttamente dal tuo telefono</strong> verso <strong>OpenStreetMap Nominatim</strong> (OpenStreetMap Foundation, Regno Unito), che trova il comune e riceve anche il tuo IP. <strong>Noi non conserviamo queste coordinate; Nominatim può registrare IP e richiesta nei propri log</strong>, secondo la sua informativa.</li>
-<li><strong>Autocompletamento degli indirizzi:</strong> il testo che digiti e un'area di riferimento intorno alla città partono <strong>direttamente dal telefono</strong> verso <strong>Photon (komoot GmbH, Germania)</strong>, che riceve anche il tuo IP. Komoot non pubblica un'informativa specifica per questo servizio.</li>
-<li><strong>Raggio di percorrenza (isocrona) e mappa:</strong> la mappa usa la tua posizione GPS effettiva (quella precisa, non solo la città) come punto di partenza. Le coordinate, arrotondate a 4 decimali (circa 11 m), arrivano al nostro server e da lì a <strong>OpenRouteService (HeiGIT gGmbH, Germania)</strong>, che vede l'IP del nostro server e non il tuo. Le coordinate precise sono un dato personale anche senza un nome; HeiGIT dichiara possibili trasferimenti fuori dall'UE. La risposta resta sul tuo telefono per 7-30 giorni.</li>
+<li><strong>Autocompletamento degli indirizzi:</strong> dal terzo carattere, il testo che digiti e un'area di riferimento intorno alla città partono <strong>direttamente dal telefono</strong> verso <strong>Photon (komoot GmbH, Germania)</strong>, che riceve anche il tuo IP, anche se poi non salvi l'evento. Komoot non pubblica un'informativa specifica per questo servizio. L'app mostra una nota sotto il campo e un pulsante per scrivere l'indirizzo senza suggerimenti: in quel caso non viene inviato nulla.</li>
+<li><strong>Raggio di percorrenza (isocrona) e mappa:</strong> la mappa usa la tua posizione GPS effettiva (quella precisa, non solo la città) come punto di partenza. Le coordinate, arrotondate a 4 decimali (circa 11 m), arrivano al nostro server, che le porta a una cella di circa 500 m prima di inoltrarle a <strong>OpenRouteService (HeiGIT gGmbH, Germania)</strong>, che vede l'IP del nostro server e non il tuo. Le coordinate precise sono un dato personale anche senza un nome; HeiGIT dichiara possibili trasferimenti fuori dall'UE. La risposta resta sul tuo telefono per 7-30 giorni.</li>
 <li><strong>Qualità del percorso (Premium):</strong> vedi §3.10.</li>
 <li><strong>Base:</strong> (b), salvo quanto detto al §3.9 per la città delle notifiche.</li>
 </ul>
@@ -433,10 +436,11 @@
 </ul>
 <p>Questi dati non sono anonimi: sono <strong>pseudonimi</strong>. Non raccogliamo l'identificativo pubblicitario.</p>
 <ul>
-<li><strong>Base:</strong> <strong>consenso</strong> (a). La raccolta resta spenta finché non accetti. Puoi revocare il consenso da Impostazioni; la revoca azzera anche i dati locali di analisi.</li>
+<li><strong>Base:</strong> <strong>consenso</strong> (a). La raccolta resta spenta finché non accetti. Puoi revocare il consenso da Impostazioni: la revoca ferma la raccolta e azzera i dati di analisi sul telefono, ma <strong>non cancella da sola</strong> lo storico già conservato da Google (vedi "Cancellazione" sotto).</li>
+<li><strong>Minori:</strong> se dichiari di avere meno di 14 anni non puoi attivare le statistiche, e un consenso già dato viene revocato quando rispondi. Il testo libero scritto per una stima AI (per esempio il mezzo di trasporto) non viene mai inviato ad Analytics: arriva solo il fatto che è stata fatta una richiesta.</li>
 <li><strong>Consensi già raccolti:</strong> se avevi dato il consenso con la finestra delle versioni precedenti, che non spiegava che i dati sono pseudonimi, che Google può trattarli negli USA e non rimandava a questa informativa, l'app ti chiede di nuovo la scelta con la finestra aggiornata.</li>
-<li><strong>Prova del consenso:</strong> registriamo nel nostro database un codice casuale dell'installazione (non collegato al tuo account), la scelta (sì o no) e la data. Una scelta viene cancellata 24 mesi dopo la sua fine (cioè da quando è sostituita da una scelta successiva o, se è un rifiuto, da quando è stata fatta); un consenso ancora in vigore resta, perché serve a dimostrarlo. Non essendo collegato all'account, il registro non entra nell'esportazione né viene cancellato con l'account.</li>
-<li><strong>Cancellazione:</strong> i dati Analytics presso Google sono legati all'installazione, non all'account, quindi <strong>la cancellazione dell'account non li cancella</strong>. Per cancellarli, revoca il consenso da Impostazioni prima di eliminare l'account o di disinstallare l'app.</li>
+<li><strong>Prova del consenso:</strong> registriamo nel nostro database un codice casuale dell'installazione (non collegato al tuo account), la scelta (sì o no), la data della scelta sul telefono e quella di ricezione e la versione del testo mostrato. Una scelta viene cancellata 24 mesi dopo la sua fine (cioè da quando è sostituita da una scelta successiva o, se è un rifiuto, da quando è stata fatta); un consenso ancora in vigore resta, perché serve a dimostrarlo. Non essendo collegato all'account, il registro non entra nell'esportazione né viene cancellato con l'account.</li>
+<li><strong>Cancellazione:</strong> i dati Analytics presso Google sono legati all'installazione, non all'account, quindi <strong>la cancellazione dell'account non li cancella</strong>. Per chiedere la cancellazione dello storico già raccolto, scrivi al contatto del §1 prima di disinstallare l'app: ti diremo come identificare l'installazione e presenteremo la richiesta a Google. Gli ospiti possono anche scaricare il registro del consenso da Impostazioni (§9).</li>
 <li><strong>Conservazione presso Google:</strong> al massimo 14 mesi, secondo l'impostazione di conservazione dei dati di Analytics.</li>
 <li><strong>Destinatario:</strong> Google, con termini separati da quelli Firebase.</li>
 </ul>
@@ -448,20 +452,19 @@
 </ul>
 <h3>3.14 Segnalazioni di contenuti</h3>
 <ul>
-<li><strong>Dati:</strong> il motivo scelto, un testo libero facoltativo (massimo 500 caratteri) e la data. Se hai un account, anche il tuo uid. Se segnali senza account, registriamo l'impronta di una chiave casuale dell'installazione (non collegata al tuo account) e, se vuoi ricevere l'esito, la tua email. Chi ha pubblicato l'evento <strong>non</strong> vede chi lo ha segnalato; gli amministratori vedono il motivo e il testo, ma non il tuo uid.</li>
+<li><strong>Dati:</strong> il motivo scelto, un testo libero facoltativo (massimo 500 caratteri) e la data. Se hai un account, anche il tuo uid. Se segnali senza account, registriamo l'impronta di una chiave casuale dell'installazione (non collegata al tuo account) e, se vuoi ricevere l'esito, la tua email. Chi ha pubblicato l'evento <strong>non</strong> vede chi lo ha segnalato; gli amministratori vedono il motivo, il testo e l'email se l'hai lasciata, ma non il tuo uid.</li>
 <li><strong>Base:</strong> obbligo di legge (c), cioè il meccanismo di segnalazione dell'art. 16 DSA, e legittimo interesse alla moderazione (f).</li>
 <li><strong>Conservazione:</strong> una segnalazione chiusa viene cancellata 12 mesi dopo la chiusura; una ancora aperta resta finché non viene valutata. Se cancelli l'account, il tuo uid e il tuo testo vengono tolti dalla segnalazione.</li>
 </ul>
 <h3>3.15 Pagine web di condivisione e pagine informative</h3>
 <ul>
-<li><strong>Pagine di condivisione</strong> (<code>/e/…</code> per un evento pubblico e <code>/v</code> per un viaggio, ospitate su Vercel): oltre all'IP trattato dal server, caricano <strong>Vercel Web Analytics</strong> e <strong>Vercel Speed Insights</strong>, che misurano visite e prestazioni. Questi script non vengono caricati per gli eventi privati, e le pagine non impostano cookie propri. Le immagini delle pagine possono arrivare dal nostro archivio Supabase, che riceve il tuo IP.</li>
+<li><strong>Pagine di condivisione</strong> (<code>/e/…</code> per un evento pubblico e <code>/v</code> per un viaggio, ospitate su Vercel): oltre all'IP trattato dal server, non caricano script di misurazione e non impostano cookie propri. Le immagini delle pagine possono arrivare dal nostro archivio Supabase, che riceve il tuo IP.</li>
 <li><strong>Questa informativa e i Termini</strong> sono ospitati su <strong>GitHub Pages</strong> (GitHub Inc., USA), che riceve l'IP di chi li visita.</li>
-<li><strong>Base:</strong> (f) per il funzionamento e la misura aggregata delle pagine, salvo diversa indicazione di legge.</li>
+<li><strong>Base:</strong> (f) per il funzionamento delle pagine.</li>
 </ul>
 <h3>3.16 Collegamenti diretti dal tuo telefono a servizi di terzi</h3>
 <p>Alcuni contenuti vengono scaricati direttamente dal tuo telefono da server di terzi, che ricevono quindi il tuo IP e le informazioni tecniche del dispositivo:</p>
 <ul>
-<li><strong>caratteri tipografici da Google Fonts</strong>, al primo avvio, prima di qualsiasi scelta sul consenso.</li>
 <li><strong>mappe di OpenStreetMap</strong> (<code>tile.openstreetmap.org</code>, servite tramite una rete CDN globale), che ricevono anche la zona della mappa che stai guardando;</li>
 <li><strong>un'immagine di benvenuto da Wikimedia</strong> (<code>upload.wikimedia.org</code>, Wikimedia Foundation, USA) nella schermata iniziale.</li>
 <li><strong>le immagini degli eventi</strong> raccolti da fonti pubbliche, caricate dal sito di origine (per esempio biglietterie o organizzatori);</li>
@@ -473,15 +476,14 @@
 <ul>
 <li><strong>Base:</strong> legittimo interesse (f) a informare il pubblico su eventi già resi pubblici.</li>
 <li><strong>Trattamenti automatici:</strong> titolo, descrizione (massimo 800 caratteri), luogo e città degli eventi possono essere inviati al servizio di classificazione <strong>Jev (TypeSafe)</strong> tramite OpenRouter, per assegnare la categoria e individuare i doppioni.<ul>
-<li>La classificazione delle categorie esclude gli eventi degli utenti e quelli privati.</li>
-<li>La <strong>deduplica</strong> invece può includere anche gli eventi degli utenti, privati compresi, e modificarli con dati della fonte pubblica (§3.5 "Deduplica").</li>
+<li>La classificazione delle categorie e la <strong>deduplica</strong> escludono gli eventi degli utenti e quelli privati (§3.5 "Deduplica").</li>
 </ul>
 </li>
-<li><strong>Conservazione:</strong> gli eventi raccolti vengono cancellati dopo la data di fine.</li>
+<li><strong>Conservazione:</strong> gli eventi raccolti vengono cancellati dopo la data di fine. Le copie di lavoro usate per verificare le fonti (schede candidate e relative prove) vengono cancellate 30 giorni dopo che la fonte non le elenca più o 30 giorni dopo la fine dell'evento. Una copia degli eventi pubblici raccolti è presente anche nel nostro ambiente di test.</li>
 <li><strong>Opposizione:</strong> se compari in un evento e ne vuoi la rimozione, scrivi al contatto del §1. Non serve un account.</li>
 </ul>
 <h3>3.18 Ristoranti (funzione sospesa)</h3>
-<p>La sezione ristoranti è disattivata. Quando era attiva, il server usava <strong>Google Places</strong> per verificare i locali e scaricarne le foto. Restano nel database i ristoranti, le etichette personali e le preferenze di visualizzazione inseriti in passato, collegati al tuo uid, e <strong>non vengono cancellati con la cancellazione dell'account</strong>.</p>
+<p>La sezione ristoranti è disattivata. Quando era attiva, il server usava <strong>Google Places</strong> per verificare i locali e scaricarne le foto. I ristoranti, le etichette personali e le preferenze di visualizzazione inseriti in passato vengono cancellati quando cancelli l'account.</p>
 <h3>3.19 Dati salvati solo sul tuo telefono</h3>
 <p>Sul telefono restano:</p>
 <ul>
@@ -522,7 +524,7 @@
 <tbody>
 <tr>
 <td>Vercel Inc.</td>
-<td>hosting del server, log, Web Analytics e Speed Insights sulle pagine web</td>
+<td>hosting del server e log</td>
 <td>USA (Washington, <code>iad1</code>)</td>
 <td><strong>Sul piano in uso (Hobby) Vercel non offre il DPA, e i suoi termini consentono di addestrare l'IA sui contenuti</strong>.</td>
 </tr>
@@ -534,7 +536,7 @@
 </tr>
 <tr>
 <td>Upstash Inc.</td>
-<td>memoria temporanea: limiti di richieste, blocchi IP, cache, elenchi email Premium e amministratori (database condiviso test/prod, §3.10)</td>
+<td>memoria temporanea: limiti di richieste, blocchi IP, cache, elenchi email Premium e amministratori</td>
 <td></td>
 <td>DPA incluso nei termini</td>
 </tr>
@@ -561,13 +563,13 @@
 <h3>5.2 Fornitori di modelli di IA, raggiunti tramite OpenRouter o direttamente</h3>
 <ul>
 <li>Mistral AI (Francia): modello a pagamento, senza conservazione né addestramento su richiesta (§3.7, §3.8);</li>
-<li>Google (Vertex AI) (USA): modello a pagamento, stesse condizioni; regione non fissata (§3.7, §3.8);</li>
+<li>Google (Vertex AI): modello a pagamento, stesse condizioni; endpoint UE richiesto, ma via OpenRouter (USA) (§3.7, §3.8);</li>
 <li>xAI (USA): Grok, riserva a pagamento, se attiva;</li>
 <li>TypeSafe: Jev, classificazione degli eventi.</li>
 </ul>
 <h3>5.3 Titolari autonomi</h3>
 <ul>
-<li>Google: Analytics for Firebase (termini separati), Play Integrity, Google Fonts, Google Maps.</li>
+<li>Google: Analytics for Firebase (termini separati), Play Integrity, Google Maps.</li>
 <li>Apple, se usi l'app su iOS o accedi con Apple (notifiche tramite APNs).</li>
 <li>OpenStreetMap Foundation (Nominatim e mappe), komoot GmbH (Photon), HeiGIT gGmbH (OpenRouteService), Open-Meteo, Wikimedia Foundation, GitHub Inc. (pagine informative), i siti di origine delle immagini degli eventi.</li>
 <li>Le autorità pubbliche, se lo impone la legge.</li>
@@ -580,7 +582,7 @@
 <h2>6. Natura del conferimento</h2>
 <ul>
 <li>Per navigare nell'app non devi fornire dati identificativi, ma IP e richieste sono necessari per far funzionare il servizio.</li>
-<li>L'account Google o Apple serve solo per pubblicare o segnalare contenuti, per esportare o cancellare in autonomia i tuoi dati e per le funzioni Premium. Senza account quelle funzioni non sono disponibili.</li>
+<li>L'account Google o Apple serve solo per pubblicare contenuti, per esportare o cancellare i dati dell'account e per le funzioni Premium; segnalare un contenuto non richiede un account. Senza account le altre funzioni non sono disponibili.</li>
 <li>Posizione, notifiche e statistiche d'uso sono facoltative: senza di esse l'app funziona, ma senza le funzioni corrispondenti.</li>
 </ul>
 
@@ -588,7 +590,7 @@
   <div class="section">
 <h2>7. Minori</h2>
 <p>L'intelligenza artificiale è una funzione principale dell'app. In Italia l'accesso dei minori di 14 anni ai sistemi di IA, e il relativo trattamento di dati, richiedono il consenso di chi esercita la responsabilità genitoriale (art. 4, comma 4, Legge 23 settembre 2025 n. 132, in vigore dal 10/10/2025). Per i servizi della società dell'informazione basati sul consenso la soglia è sempre 14 anni (art. 2-quinquies D.Lgs. 196/2003).</p>
-<p>VattenAI è destinata a chi ha compiuto <strong>14 anni</strong>. All'avvio dell'app ti chiediamo di dichiarare di avere almeno 14 anni e non puoi proseguire senza farlo. <strong>Questa dichiarazione non viene verificata</strong>: se veniamo a sapere che un minore di 14 anni ha un account senza il consenso di chi esercita la responsabilità genitoriale, lo cancelliamo.</p>
+<p>VattenAI è destinata a chi ha compiuto <strong>14 anni</strong>. All'avvio dell'app ti chiediamo di dichiarare di avere almeno 14 anni e non puoi proseguire senza farlo (a chi aveva già installato una versione precedente la domanda viene posta una volta, alla prima apertura successiva). Se dichiari di avere meno di 14 anni puoi comunque consultare gli eventi e la mappa, ma non puoi usare le stime AI, l'account, la pubblicazione, le notifiche né le statistiche d'uso. <strong>Questa dichiarazione non viene verificata</strong>: se veniamo a sapere che un minore di 14 anni ha un account senza il consenso di chi esercita la responsabilità genitoriale, lo cancelliamo.</p>
 
   </div>
   <div class="section">
@@ -600,7 +602,7 @@
 <li><strong>Upstash</strong>: DPF e clausole contrattuali standard; regione.</li>
 <li><strong>Supabase</strong>: i dati del progetto restano in Irlanda; i trasferimenti verso Supabase Pte. Ltd. (Singapore) e i sub-fornitori sono coperti da clausole contrattuali standard.</li>
 <li><strong>OpenRouter</strong> (USA): clausole contrattuali standard.</li>
-<li><strong>Google (Vertex AI), xAI</strong> (USA).</li>
+<li><strong>Google (Vertex AI)</strong>: richiediamo l'endpoint UE, ma la richiesta passa da OpenRouter (USA). <strong>xAI</strong> (USA).</li>
 <li><strong>Mistral AI</strong> (Francia, Unione europea): nessun trasferimento extra-UE dal nostro lato; OpenRouter (USA) fa da intermediario.</li>
 <li><strong>Altri:</strong> HeiGIT (OpenRouteService) dichiara trasferimenti fuori dall'UE. La OpenStreetMap Foundation opera dal Regno Unito, coperto da una decisione di adeguatezza. Wikimedia Foundation e GitHub si trovano negli USA.</li>
 </ul>
@@ -622,9 +624,9 @@
 </ul>
 <p><strong>Come esercitarli:</strong></p>
 <ul>
-<li><strong>Nell'app</strong>, se hai un account Google o Apple: Impostazioni → "Recupera tutti i miei dati" scarica una copia, Impostazioni → "Elimina account" cancella l'account. Il consenso alle statistiche si revoca sempre da Impostazioni.</li>
+<li><strong>Nell'app</strong>: con un account Google o Apple, Impostazioni → "Recupera tutti i miei dati" scarica una copia e Impostazioni → "Elimina account" cancella l'account; da ospite, Impostazioni → "Scarica i dati di questo dispositivo" / "Cancella i dati di questo dispositivo". Il consenso alle statistiche e quello a "Suggerimenti e promemoria" si revocano sempre da Impostazioni.</li>
 <li><strong>Per email</strong>, al contatto del §1, anche se sei un ospite o non usi l'app. Per verificare la tua identità ti chiederemo di scrivere dall'indirizzo collegato al tuo account o altre informazioni strettamente necessarie.<ul>
-<li><strong>Ospiti:</strong> un account ospite non ha email né nome, quindi in genere non possiamo collegare con certezza una richiesta ai tuoi dati. In quel caso ti diremo che non siamo in grado di identificarti, salvo che tu ci fornisca altre informazioni utili (art. 11.2 GDPR). L'account si cancella comunque da solo dopo 30 giorni di inattività.</li>
+<li><strong>Ospiti:</strong> un account ospite non ha email né nome, quindi per email in genere non possiamo collegare con certezza una richiesta ai tuoi dati. Per questo l'app ti permette di scaricare o cancellare, da Impostazioni, ciò che il server conserva per la tua installazione (registrazione delle notifiche, avvisi, promemoria, prove del consenso); le prove del consenso restano per il loro periodo (§3.12). L'account si cancella comunque da solo dopo 30 giorni di inattività.</li>
 </ul>
 </li>
 <li><strong>Rispondiamo entro un mese</strong> dalla richiesta. Se la richiesta è complessa il termine può essere prorogato di altri due mesi: in quel caso te lo comunichiamo entro il primo mese (art. 12.3 GDPR).</li>
@@ -632,32 +634,34 @@
 <p><strong>Cosa comprende l'esportazione:</strong></p>
 <ul>
 <li>dati del profilo;</li>
-<li>eventi creati, compresi nome ed email salvati;</li>
-<li>per le notifiche: piattaforma, città registrata e sue coordinate, data dell'ultima attività (non il token);</li>
+<li>eventi creati, compreso il nome salvato;</li>
+<li>per le notifiche: piattaforma, città registrata e sue coordinate, ultima città di viaggio e relativa data, data dell'ultima attività, data e tipo dell'ultima notifica e la tua scelta su "Suggerimenti e promemoria" (non il token);</li>
 <li>avvisi pioggia e promemoria;</li>
-<li>eventi privati sbloccati.</li>
+<li>eventi privati sbloccati;</li>
+<li>le segnalazioni che hai fatto (solo la tua voce);</li>
+<li>i dati della sezione ristoranti che hai inserito;</li>
+<li>le accettazioni dei Termini.</li>
 </ul>
 <p><strong>Non comprende:</strong></p>
 <ul>
-<li>ultima città di viaggio e relativa data, data e tipo dell'ultima notifica, impronta della chiave del dispositivo;</li>
-<li>le segnalazioni che hai fatto;</li>
+<li>l'impronta della chiave del dispositivo;</li>
 <li>gli organizzatori inseriti;</li>
-<li>i dati della sezione ristoranti;</li>
-<li>le immagini (solo il loro indirizzo).</li>
+<li>le immagini (solo il loro indirizzo);</li>
+<li>la tua email negli elenchi Premium e amministratori;</li>
+<li>il registro del consenso dell'installazione (gli ospiti possono scaricarlo da Impostazioni, vedi sopra).</li>
 </ul>
 <p>Puoi chiederli per email.</p>
 <p><strong>Cosa fa la cancellazione dell'account</strong>:</p>
 <ul>
-<li>cancella l'account Firebase, i dati delle notifiche (con avvisi e promemoria collegati), le prove, gli accessi agli eventi privati, le immagini caricate, le accettazioni dei Termini e gli organizzatori rimasti senza eventi;</li>
+<li>cancella l'account Firebase, i dati delle notifiche (con avvisi e promemoria collegati), le prove, gli accessi agli eventi privati, le immagini caricate, le accettazioni dei Termini, i dati della sezione ristoranti, la tua email nell'elenco Premium e gli organizzatori rimasti senza eventi;</li>
 <li>anonimizza le tue segnalazioni;</li>
-<li>svuota i tuoi eventi, lasciando solo una traccia tecnica senza contenuto né autore (data, categoria, città).</li>
+<li>svuota i tuoi eventi, lasciando solo una traccia tecnica senza contenuto né autore (titolo generico, date, categoria, città).</li>
 </ul>
 <p><strong>Non cancella</strong>:</p>
 <ul>
-<li>i dati della sezione ristoranti;</li>
-<li>la tua email negli elenchi Premium e amministratori;</li>
 <li>il registro del consenso, che non è collegato all'account e ha una scadenza propria (§3.12);</li>
-<li>i dati Analytics presso Google (§3.12).</li>
+<li>i dati Analytics presso Google (§3.12);</li>
+<li>un'eventuale email scritta nella configurazione del server degli amministratori.</li>
 </ul>
 <p>Se un passaggio della cancellazione fallisce, viene ritentato ogni notte.</p>
 <p><strong>Backup:</strong> i backup del database, se presenti, possono contenere dati già cancellati fino alla loro scadenza.</p>
@@ -687,7 +691,7 @@
   </div>
   <div class="section">
 <h2>12. Modifiche</h2>
-<p>Se modifichiamo questa informativa in modo sostanziale te lo comunicheremo nell'app prima che le modifiche abbiano effetto. La data in cima indica l'ultima versione.</p>
+<p>Se modifichiamo questa informativa in modo sostanziale te lo comunicheremo nell'app prima che le modifiche abbiano effetto, con un avviso che indica la data da cui si applicano. La data in cima indica l'ultima versione.</p>
   </div>
 </div>
 

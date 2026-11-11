@@ -33,7 +33,7 @@
 <!-- ENGLISH -->
 <div id="en">
   <h1>VattenAI</h1>
-  <p class="subtitle">Privacy Policy — Last updated: October 25, 2026</p>
+  <p class="subtitle">Privacy Policy — Last updated: November 12, 2026</p>
   <div class="section">
 <h2>1. Controller and contact</h2>
 <p>Controller: <strong>Federico Ribaldi</strong>, individual, sole developer of VattenAI. Certified email (PEC): <strong>federico.ribaldi@pec.it</strong>.</p>
@@ -60,7 +60,7 @@
 <ul>
 <li><strong>Data:</strong> IP, user agent, time, request parameters (city/region, filters, search text, map-centre coordinates for "Search this area"); some appear in URLs (event search; trip share pages with origin/destination).</li>
 <li><strong>Basis:</strong> (b); security (f).</li>
-<li><strong>Retention:</strong> our code writes your IP to no <strong>permanent</strong> database; in Redis it is only a temporary key for limits and blocks (§3.2). Vercel keeps runtime logs <strong>1 hour</strong> on the plan in use, the free "Hobby" plan.</li>
+<li><strong>Retention:</strong> our code writes your IP to no <strong>permanent</strong> database; in Redis it is only a temporary key for limits and blocks (§3.2). Vercel keeps runtime logs <strong>1 day</strong> on the plan in use (Pro).</li>
 </ul>
 <h3>3.2 Security and abuse prevention</h3>
 <ul>
@@ -115,7 +115,7 @@
 <li><strong>Sent:</strong> origin/destination (free text), transport (free text), distance, up to 5 destination events, language; <strong>no</strong> IP, account, email or device ID to the model. Don't type personal data in free-text fields.</li>
 <li><strong>Recipients:</strong> the request goes via <strong>OpenRouter</strong> (USA) to paid models, in this order: <strong>Mistral Small</strong> run by <strong>Mistral AI</strong> (France), then <strong>Gemini 3.1 Flash Lite</strong> run by <strong>Google (Vertex AI)</strong>; last resort, if enabled, <strong>xAI (Grok)</strong> (USA).</li>
 <li><strong>Provider use:</strong> on every OpenRouter request we ask to use only that provider, <strong>not to retain</strong> the data (Zero Data Retention) and <strong>not to train</strong> on it; if no provider meets these constraints, the request is not sent. We no longer use free models. We ask for the EU endpoints of Mistral AI and Google Vertex AI; the request still passes through OpenRouter (USA). The commitment not to retain or train is the providers': we request it and check their terms but cannot verify it directly. xAI states no training on API inputs and 30-day retention for abuse monitoring.</li>
-<li><strong>Our retention:</strong> Redis <strong>2 minutes</strong>; unreadable answers: first 500 chars in the 1-hour log.</li>
+<li><strong>Our retention:</strong> Redis <strong>2 minutes</strong>; unreadable answers: first 500 chars in the 1-day log.</li>
 <li><strong>Basis:</strong> (b). Estimates are <strong>AI-generated</strong>, fictional, for entertainment.</li>
 </ul>
 <h3>3.9 Push notifications and the city used for them</h3>
@@ -184,7 +184,7 @@
 <p><strong>5.1 Processors (Art. 28):</strong>
 | Provider | Service | Location | Contract status |
 |---|---|---|---|
-| Vercel Inc. | backend hosting, logs | USA (<code>iad1</code>) | <strong>No DPA on the Hobby plan in use; terms allow AI training on content</strong> |
+| Vercel Inc. | backend hosting, logs | USA (<code>iad1</code>) | DPA in terms (Pro plan in use) |
 | Supabase Inc. | database, storage | EU (Ireland, <code>eu-west-1</code>) | DPA in terms |
 | Upstash Inc. | limits, IP blocks, cache, Premium/admin emails | | DPA in terms |
 | Google (Firebase) | Auth, FCM, App Check | Auth US-only; others global | Firebase terms |
@@ -207,7 +207,7 @@
   </div>
   <div class="section">
 <h2>8. Transfers outside the EU</h2>
-<p><strong>Vercel</strong> (USA, all requests): DPF claimed; SCCs only in the DPA, <strong>not available on the plan in use</strong>. <strong>Google/Firebase</strong>: Auth US-only; DPF + SCCs. <strong>Upstash</strong>: DPF + SCCs. <strong>Supabase</strong>: data in Ireland; SCCs for Singapore entity and sub-processors. <strong>OpenRouter</strong>: USA, SCCs. <strong>Google (Vertex AI)</strong>: we request the EU endpoint, but the request passes through OpenRouter (USA). <strong>xAI</strong>: USA. <strong>Mistral AI</strong>: France (EU), via OpenRouter (USA). HeiGIT states non-EU transfers; OSMF in the UK (adequacy); Wikimedia and GitHub in the USA. DPF valid but under appeal (C-703/25 P). You may request the safeguards.</p>
+<p><strong>Vercel</strong> (USA, all requests): DPF claimed; SCCs in its DPA (Pro plan in use). <strong>Google/Firebase</strong>: Auth US-only; DPF + SCCs. <strong>Upstash</strong>: DPF + SCCs. <strong>Supabase</strong>: data in Ireland; SCCs for Singapore entity and sub-processors. <strong>OpenRouter</strong>: USA, SCCs. <strong>Google (Vertex AI)</strong>: we request the EU endpoint, but the request passes through OpenRouter (USA). <strong>xAI</strong>: USA. <strong>Mistral AI</strong>: France (EU), via OpenRouter (USA). HeiGIT states non-EU transfers; OSMF in the UK (adequacy); Wikimedia and GitHub in the USA. DPF valid but under appeal (C-703/25 P). You may request the safeguards.</p>
 
   </div>
   <div class="section">
@@ -243,7 +243,7 @@
 <!-- ITALIANO -->
 <div id="it" class="hidden">
   <h1>VattenAI</h1>
-  <p class="subtitle">Informativa sulla privacy — Ultimo aggiornamento: 25 ottobre 2026</p>
+  <p class="subtitle">Informativa sulla privacy — Ultimo aggiornamento: 12 novembre 2026</p>
   <div class="section">
 <h2>1. Chi è il titolare e come contattarlo</h2>
 <p>Titolare del trattamento: <strong>Federico Ribaldi</strong>, persona fisica, sviluppatore individuale di VattenAI. Posta elettronica certificata (PEC): <strong>federico.ribaldi@pec.it</strong>.</p>
@@ -270,7 +270,7 @@
 <ul>
 <li><strong>Dati:</strong> indirizzo IP, user-agent, ora della richiesta e i suoi parametri: città o regione scelta, filtri, testo di ricerca, coordinate del centro mappa quando usi "Cerca in quest'area". Alcuni di questi dati compaiono nell'indirizzo (URL), per esempio nella ricerca eventi e nelle pagine di condivisione di un viaggio (origine e destinazione).</li>
 <li><strong>Scopo e base:</strong> fornirti il servizio (b); sicurezza e prevenzione degli abusi (f).</li>
-<li><strong>Conservazione:</strong> il nostro codice non scrive l'IP in alcun database <strong>permanente</strong>. In Redis l'IP compare solo come chiave temporanea per limiti e blocchi (§3.2). Il fornitore di hosting (Vercel) conserva i log di esecuzione per <strong>1 ora</strong> sul piano in uso, che è il piano gratuito "Hobby".</li>
+<li><strong>Conservazione:</strong> il nostro codice non scrive l'IP in alcun database <strong>permanente</strong>. In Redis l'IP compare solo come chiave temporanea per limiti e blocchi (§3.2). Il fornitore di hosting (Vercel) conserva i log di esecuzione per <strong>1 giorno</strong> sul piano in uso (Pro).</li>
 </ul>
 <h3>3.2 Sicurezza e prevenzione degli abusi</h3>
 <ul>
@@ -367,7 +367,7 @@
 <ul>
 <li><strong>Destinatari:</strong> la richiesta viene inviata tramite <strong>OpenRouter</strong> (USA) a modelli a pagamento, in quest'ordine: <strong>Mistral Small</strong>, eseguito da <strong>Mistral AI</strong> (Francia), e se non risponde <strong>Gemini 3.1 Flash Lite</strong>, eseguito da <strong>Google (Vertex AI)</strong>. Come ultima riserva, se è attiva, <strong>xAI (Grok)</strong> (USA).</li>
 <li><strong>Come i fornitori usano i dati:</strong> su ogni richiesta a OpenRouter chiediamo di usare solo il fornitore indicato, di <strong>non conservare</strong> i dati (Zero Data Retention) e di <strong>non usarli per addestrare</strong> i modelli; se nessun fornitore rispetta questi vincoli, la richiesta non parte. Non usiamo più i modelli gratuiti. Chiediamo gli endpoint UE di Mistral AI e di Google Vertex AI; la richiesta passa comunque da OpenRouter (USA). L'impegno a non conservare né addestrare è dei fornitori: lo richiediamo e lo verifichiamo sui loro termini, ma non lo controlliamo direttamente. xAI dichiara di non addestrare sugli input inviati tramite API e di conservarli 30 giorni contro gli abusi.</li>
-<li><strong>Conservazione presso di noi:</strong> il risultato resta in una memoria temporanea (Redis) per <strong>2 minuti</strong>, per evitare richieste doppie. Se la risposta del modello non è leggibile, i suoi primi 500 caratteri finiscono nel log tecnico, conservato 1 ora (§3.1).</li>
+<li><strong>Conservazione presso di noi:</strong> il risultato resta in una memoria temporanea (Redis) per <strong>2 minuti</strong>, per evitare richieste doppie. Se la risposta del modello non è leggibile, i suoi primi 500 caratteri finiscono nel log tecnico, conservato 1 giorno (§3.1).</li>
 <li><strong>Base:</strong> (b).</li>
 <li><strong>Natura del contenuto:</strong> le stime sono <strong>generate da un sistema di intelligenza artificiale</strong>, sono inventate e servono a intrattenere (vedi Termini).</li>
 </ul>
@@ -528,7 +528,7 @@
 <td>Vercel Inc.</td>
 <td>hosting del server e log</td>
 <td>USA (Washington, <code>iad1</code>)</td>
-<td><strong>Sul piano in uso (Hobby) Vercel non offre il DPA, e i suoi termini consentono di addestrare l'IA sui contenuti</strong>.</td>
+<td>DPA richiamato nei termini del fornitore (piano Pro in uso)</td>
 </tr>
 <tr>
 <td>Supabase Inc.</td>
@@ -599,7 +599,7 @@
 <h2>8. Trasferimenti fuori dall'Unione europea</h2>
 <p>Alcuni dati vengono trattati fuori dallo Spazio economico europeo, soprattutto negli <strong>Stati Uniti</strong>.</p>
 <ul>
-<li><strong>Vercel</strong> (USA) riceve tutte le richieste all'app: IP, token di accesso, contenuti, immagini in transito, testo delle locandine. Vercel dichiara di aderire all'<strong>EU-U.S. Data Privacy Framework</strong>. Le clausole contrattuali standard sono nel suo DPA, che <strong>non è disponibile sul piano in uso</strong>.</li>
+<li><strong>Vercel</strong> (USA) riceve tutte le richieste all'app: IP, token di accesso, contenuti, immagini in transito, testo delle locandine. Vercel dichiara di aderire all'<strong>EU-U.S. Data Privacy Framework</strong>. Le clausole contrattuali standard sono nel suo DPA (piano Pro in uso).</li>
 <li><strong>Google/Firebase</strong>: Authentication funziona solo negli USA. Google è certificata DPF e usa le clausole contrattuali standard.</li>
 <li><strong>Upstash</strong>: DPF e clausole contrattuali standard; regione.</li>
 <li><strong>Supabase</strong>: i dati del progetto restano in Irlanda; i trasferimenti verso Supabase Pte. Ltd. (Singapore) e i sub-fornitori sono coperti da clausole contrattuali standard.</li>
